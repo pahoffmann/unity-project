@@ -88,7 +88,12 @@ public class Player : MonoBehaviour
 
         // get transform.position once to avoid redundancy
         Vector3 pos = transform.position;
-        float ceiling = 4.5f, floor = -4.5f, leftWall = -9.5f, rightWall = 9.5f;
+        
+        // use values from constants class instead of hardcoding it.
+        float ceiling   = Constants.Dimensions.BorderTop, 
+              floor     = Constants.Dimensions.BorderBottom,
+              leftWall  = Constants.Dimensions.BorderLeft,
+              rightWall = Constants.Dimensions.BorderRight;
         
         // player boundaries
         // top, bottom

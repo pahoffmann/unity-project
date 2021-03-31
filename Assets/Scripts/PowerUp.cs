@@ -31,7 +31,7 @@ public class PowerUp : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag(Constants.Tags.Player))
         {
             // activate UVLight in Player script if PowerUp is collected
             other.GetComponent<Player>().ActivateUVLight(_powerUpDuration);
