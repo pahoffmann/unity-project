@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     [SerializeField] private bool _useUVLight = false;
     
     // UIManager shit
-    [SerializeField] private GameObject _UIManager;
+    [SerializeField] private UIManager _UIManager;
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +40,9 @@ public class Player : MonoBehaviour
         
         
         // spawn player
-        transform.position = new Vector3(0, -4, 0);
+        transform.position = new Vector3(0, -2, 0);
+        
+        _UIManager.setLives(_lives);
     }
     
     // Update is called once per frame
@@ -145,6 +147,7 @@ public class Player : MonoBehaviour
     {
         // reduce amount of lives
         _lives--;
+        _UIManager.setLives(_lives);
 
         switch (_lives)
         {
@@ -160,6 +163,8 @@ public class Player : MonoBehaviour
                     {
                         Destroy(coronaComponent.gameObject);
                     }
+                    
+                    _UIManager.GameOver(true);
                     
                     // change da world. My final message, Goodbye.
                     Destroy(this.gameObject);
