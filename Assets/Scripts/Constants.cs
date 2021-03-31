@@ -20,4 +20,6 @@ public static class Constants
         public static float BorderTop    = 4.5f;
         public static float BorderBottom = -4.5f;
     }
+
+    public static String levelFileBase = "lvl";
 }
