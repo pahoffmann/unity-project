@@ -12,7 +12,7 @@ public class WaveManager : MonoBehaviour
     //todo: more prefabs?
     
     
-    public List<Level> levels;
+    public List<Level> levels = new List<Level>();
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +22,15 @@ public class WaveManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // if not yet every virus of current wave has been spawned && timer is ok
+            // spawn
+            //adjust timer
+        // else if every virus has been destroyed
+            // continue to next wave (e.g. remove first element of list)
+            // display end text
+            // display start text
+        // else
+            //do nothin bitch
     }
 
     void ReadLevelFiles()
@@ -30,7 +38,7 @@ public class WaveManager : MonoBehaviour
         foreach (var file in Directory.EnumerateFiles("Assets/Levels"))
         {
             // if the file does not start with the appropriate sequence we skip it, as it is not considered a lvl file
-            if (!file.StartsWith(Constants.levelFileBase))
+            if (!file.Contains(Constants.levelFileBase))
             {
                 continue;
             }
@@ -51,7 +59,7 @@ public class WaveManager : MonoBehaviour
                 var token = split[0];
                 var value = split[1];
                 
-                switch (split[0])
+                switch (token)
                 {
                     case Constants.LevelConstants.Type:
                         var type = value;
@@ -86,6 +94,8 @@ public class WaveManager : MonoBehaviour
                         break;
                 }  
             }
+
+            levels.Append(level);
         }
     }
 }
