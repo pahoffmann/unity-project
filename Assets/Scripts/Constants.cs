@@ -20,6 +20,26 @@ public static class Constants
         public static float BorderTop    = 4.5f;
         public static float BorderBottom = -4.5f;
     }
+    
+    /**
+     * Constants for the file format used to enable levels.
+     */
+    public readonly struct LevelConstants
+    {
+        public const String Type = "type";
+        public const String Num = "num";
+        public const String StartupDescription = "msg1";
+        public const String EndDescription = "msg2";
+        public const String TimeBetweenSpawns = "tbs";
+        public const String NumEnemies = "enemies";
+    }
 
+    public readonly struct LevelTypes
+    {
+        public const String Normal = "normal";
+        public const String Boss = "boss";
+    }
+    
+    // base name of the levels
     public static String levelFileBase = "lvl";
 }

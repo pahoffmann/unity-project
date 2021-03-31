@@ -1,7 +1,6 @@
-#1
-It will go away soon...
+num:1
+type:normal
+msg1:It will go away soon...
 tbs:0.1
-
-#Coroner-10;
-
-Good job, first wave is done m8
+enemies:Coroner-10;
+msg2:Good job, first wave is done m8

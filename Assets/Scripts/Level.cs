@@ -11,6 +11,7 @@ public struct VirusVariants
     public int numCorona { get; set;}
     public int numB117 { get; set; }
     // create more ???
+    // how to map bosses? what is a boss?
 }
 
 /**
@@ -36,5 +37,6 @@ public class Level
     public float TimeBetweenSpawns { get; set; }
     public String StartupDescription { get; set; }
     public String EndDescription { get; set; }
+    public String Type { get; set; }
     public VirusVariants Variants { get; set; }
 }
