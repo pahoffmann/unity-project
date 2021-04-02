@@ -34,7 +34,23 @@ public class BackgroundLoop : MonoBehaviour
         Transform[] children = gameObject.GetComponentsInChildren<Transform>();
         foreach (Transform child in children)
         {
-            child.Translate(0, -1f * speed * Time.deltaTime, 0, Space.World);
+            // skip over the parent
+            if (!(child == children[0]))
+            {
+                child.Translate(0, -1f * speed * Time.deltaTime, 0, Space.World);
+
+                // check if image out of bounds
+                float objectHeight = child.GetComponent<MeshRenderer>().bounds.size.y;
+                if (child.transform.position.y < -objectHeight)
+                {
+                    // if child out of bounds create new clone and place it on top
+                    // and destroy child
+                    GameObject clone = Instantiate(child.gameObject) as GameObject;
+                    clone.transform.Translate(new Vector3(0, 2f * objectHeight, 0));
+                    clone.transform.SetParent(transform);
+                    Destroy(child.gameObject);
+                }
+            }
         }
     }
 
@@ -43,10 +59,12 @@ public class BackgroundLoop : MonoBehaviour
         // clone each sprite and put it on top, so that there are two sprites
         float objectHeight = obj.GetComponent<MeshRenderer>().bounds.size.y;
         GameObject clone = Instantiate(obj) as GameObject;
-        clone.transform.Translate(new Vector3(0, clone.transform.position.y + objectHeight, 0));
+        clone.transform.Translate(new Vector3(0, objectHeight, 0));
         float cloneScaleX = clone.transform.localScale.x;
+        /*
         clone.transform.localScale += new Vector3(-2 * cloneScaleX, 1f, 1f);
         clone.transform.Rotate(0f, 0f, 180f, Space.Self);
+        */
         clone.transform.SetParent(transform);
     }
     
