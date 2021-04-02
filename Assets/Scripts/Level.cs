@@ -4,33 +4,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /**
- * struct for all the different virus variants
- */
-public struct VirusVariants
-{
-    public int numCorona { get; set;}
-    public int numB117 { get; set; }
-    // create more ???
-    // how to map bosses? what is a boss?
-}
-
-/**
  * Level class containing all the relevant information needed in a level
  */
 public class Level
 {
-    public Level(int lvlNum, float timeBetweenSpawns, String startupDescription, String endDescription, VirusVariants variants)
+    public Level(int lvlNum, float timeBetweenSpawns, String startupDescription, String endDescription)
     {
         LvlNum = lvlNum;
         TimeBetweenSpawns = timeBetweenSpawns;
         StartupDescription = startupDescription;
         EndDescription = endDescription;
-        Variants = variants;
+        SpawnOrder = new Queue<string>();
     }
 
     public Level()
     {
-        
+        SpawnOrder = new Queue<string>();
     }
 
     public int LvlNum { get; set; }
@@ -38,5 +27,6 @@ public class Level
     public String StartupDescription { get; set; }
     public String EndDescription { get; set; }
     public String Type { get; set; }
-    public VirusVariants Variants { get; set; }
+    
+    public Queue<String> SpawnOrder { get; set; }
 }

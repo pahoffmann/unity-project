@@ -12,6 +12,14 @@ public static class Constants
         public static String Virus = "Virus";
         public static String UVLight = "UVLight";
     }
+    
+    public readonly struct VirusForms
+    {
+        public const String CoronaBase = "Coroner";
+        public const String CoronaB117 = "B117";
+        //insert more here
+        //maybe use tags instead??
+    }
 
     public readonly struct Dimensions
     {

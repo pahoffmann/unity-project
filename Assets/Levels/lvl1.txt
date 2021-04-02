@@ -1,6 +1,6 @@
 num:1
 type:normal
 msg1:It will go away soon...
-tbs:0.1
-enemies:Coroner-10;
+tbs:1
+enemies:Coroner-10;Coroner-10;B117-20;Coroner-10
 msg2:Good job, first wave is done m8
