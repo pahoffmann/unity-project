@@ -171,6 +171,7 @@ MonoBehaviour:
   _b117Prefab: {fileID: 7184966149125962772, guid: 574256e6327f59949bcd187090b2cd37,
     type: 3}
   _bossPrefab: {fileID: 0}
+  _UIManager: {fileID: 285330842}
 --- !u!1 &285330839
 GameObject:
   m_ObjectHideFlags: 0

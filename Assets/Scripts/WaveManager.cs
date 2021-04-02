@@ -13,10 +13,15 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private GameObject _bossPrefab;
     //todo: more prefabs?
     
+    // UIManager shit
+    [SerializeField] private UIManager _UIManager;
+    
     // stores information about the levels
     public List<Level> levels = new List<Level>();
 
     private int _currentLevel = 1;
+
+    private bool _doneSpawning = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +33,22 @@ public class WaveManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // all virusses destroyed
+        if (transform.childCount == 0 && _doneSpawning)
+        {
+            _doneSpawning = false; // reset
+            
+            //all levels done?
+            if (_currentLevel == levels.Count)
+            {
+                _UIManager.GameOver(true);
+            }
+            else
+            {
+                _currentLevel++;
+                StartCoroutine(WaveCoroutine(_currentLevel));
+            }
+        }
         // if not yet every virus of current wave has been spawned && timer is ok
             // spawn
             //adjust timer
@@ -52,6 +73,8 @@ public class WaveManager : MonoBehaviour
             SpawnVirusPrefab(toBeSpawned);
             yield return new WaitForSeconds(levels[levelIndex].TimeBetweenSpawns);
         }
+
+        _doneSpawning = true;
     }
 
     void SpawnVirusPrefab(String form)
