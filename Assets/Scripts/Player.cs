@@ -152,27 +152,14 @@ public class Player : MonoBehaviour
         switch (_lives)
         {
             case 0:
-                if (_spawnManager != null)
-                {
-                    // deactivate spawning
-                    _spawnManager.GetComponent<SpawnManager>().onPlayerDeath();
-                    
-                    // get the children of the SpawnManager (Corona) and destroy them
-                    Component[] coronaComponents = _spawnManager.GetComponentsInChildren(typeof(Coroner));
-                    foreach (Component coronaComponent in coronaComponents)
-                    {
-                        Destroy(coronaComponent.gameObject);
-                    }
-                    
-                    _UIManager.GameOver(true);
-                    
-                    // change da world. My final message, Goodbye.
-                    Destroy(this.gameObject);
-                }
-                else
-                {
-                    Debug.LogError("SpawnManager not assigned");
-                }
+                
+                //maybe destroy leftover viruses (stop spawning)
+
+                _UIManager.GameOver(true);
+                
+                // change da world. My final message, Goodbye.
+                Destroy(this.gameObject);
+                
                 break;
             case 1:
                 // change the color when damaged

@@ -82,10 +82,10 @@ public class WaveManager : MonoBehaviour
         switch (form)
         {
             case Constants.VirusForms.CoronaB117:
-                Instantiate(_b117Prefab, new Vector3(Random.Range(-5f, 5f), 8f, 0f),Quaternion.identity, this.transform);
+                Instantiate(_b117Prefab, new Vector3(Random.Range(Constants.Dimensions.BorderLeft, Constants.Dimensions.BorderRight), 8f, 0f),Quaternion.identity, this.transform);
                 break;
             case Constants.VirusForms.CoronaBase:
-                Instantiate(_coronaPrefab, new Vector3(Random.Range(-5f, 5f), 8f, 0f), 
+                Instantiate(_coronaPrefab, new Vector3(Random.Range(Constants.Dimensions.BorderLeft, Constants.Dimensions.BorderRight), 8f, 0f), 
                     Quaternion.identity, this.transform);
                 break;
             default: //add more virus spawns
