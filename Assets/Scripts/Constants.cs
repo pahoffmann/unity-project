@@ -21,6 +21,11 @@ public static class Constants
         //maybe use tags instead??
     }
 
+    public readonly struct PowerUps
+    {
+        // todo
+    }
+
     public readonly struct Dimensions
     {
         public static float BorderLeft   = -9.5f;

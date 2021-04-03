@@ -70,14 +70,14 @@ public class WaveManager : MonoBehaviour
         while (_currentLevel == curLevel && levels[levelIndex].SpawnOrder.Count > 0)
         {
             var toBeSpawned = levels[levelIndex].SpawnOrder.Dequeue();
-            SpawnVirusPrefab(toBeSpawned);
+            SpawnPrefab(toBeSpawned);
             yield return new WaitForSeconds(levels[levelIndex].TimeBetweenSpawns);
         }
 
         _doneSpawning = true;
     }
 
-    void SpawnVirusPrefab(String form)
+    void SpawnPrefab(String form)
     {
         switch (form)
         {
@@ -145,8 +145,9 @@ public class WaveManager : MonoBehaviour
                         level.StartupDescription = value;
                         break;
                     case Constants.LevelConstants.TimeBetweenSpawns:
-                        int.TryParse(value, out int tbs);
+                        float.TryParse(value, out float tbs);
                         level.TimeBetweenSpawns = tbs;
+                        Debug.Log("tbs: " + tbs);
                         break;
                     case Constants.LevelConstants.NumEnemies:
                         //todo: parse complicated case, how to properly use prefabs here
