@@ -734,7 +734,7 @@ MonoBehaviour:
   _vaccinePrefab: {fileID: 6980919086455902853, guid: cc735fcefaa11c63391e40cdceb068ac,
     type: 3}
   _vaccinationRate: 0.3
-  _spawnManager: {fileID: 0}
+  _waveManager: {fileID: 3485306}
   _UVLightPrefab: {fileID: 8539928880048708080, guid: 433f2cfacbc7d5f4da01558fd6ce5cc8,
     type: 3}
   _useUVLight: 0

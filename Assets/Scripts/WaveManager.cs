@@ -23,6 +23,8 @@ public class WaveManager : MonoBehaviour
     private int _currentLevel = 1;
 
     private bool _doneSpawning = false;
+
+    private bool _gameOver = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,10 @@ public class WaveManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_gameOver)
+        {
+            _UIManager.GameOver(true);
+        }
         // all virusses destroyed
         if (transform.childCount == 0 && _doneSpawning)
         {
@@ -60,7 +66,12 @@ public class WaveManager : MonoBehaviour
         // else
             //do nothin bitch
     }
-
+    
+    /// <summary>
+    /// Wave Coroutine spawns one level (wave) until every virus and powerup is destroyed
+    /// </summary>
+    /// <param name="curLevel"></param>
+    /// <returns></returns>
     IEnumerator WaveCoroutine(int curLevel)
     {
         Debug.Log("Level:" + curLevel);
@@ -78,7 +89,10 @@ public class WaveManager : MonoBehaviour
         _doneSpawning = true;
     }
     
-    
+    /// <summary>
+    /// Spawns the prefab specified by the form.
+    /// </summary>
+    /// <param name="form">Form of the virus or powerup, defined in the Constants.cs class</param>
     void SpawnPrefab(String form)
     {
         switch (form)
@@ -94,16 +108,26 @@ public class WaveManager : MonoBehaviour
                 break;
         }
     }
-
+    
+    
     /// <summary>
-    /// Spawns the powerup passed to the method
+    /// Handler called, if the player dies.
     /// </summary>
-    /// <param name="form">Form of the powerup, needs to be one of those specified in Constants.PowerupForms</param>
-    void SpawnPowerup(String form)
+    public void onPlayerDeath()
     {
-        // add powerup spawns
+        // when the player is dead, we stop all spawning, and the game is over
+        StopAllCoroutines();
+        _gameOver = true;
+        
+        // destroy every left children of the wave manager
+        foreach (Transform child in transform) {
+            GameObject.Destroy(child.gameObject);
+        }
     }
-
+    
+    /// <summary>
+    /// Reads all levels specified in the level folder. Handles errors.
+    /// </summary>
     void ReadLevelFiles()
     {
         foreach (var file in Directory.EnumerateFiles("Assets/Levels"))

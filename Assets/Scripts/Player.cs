@@ -17,8 +17,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float _vaccinationRate = 0.3f;
     private float _nextVaccination = 0f;
 
-    // spawnManager shit
-    [SerializeField] private SpawnManager _spawnManager;
+    // wavemanager needs to know, when this dude is dead.
+    [SerializeField] private WaveManager _waveManager;
     
     // UV light shit
     [SerializeField] private GameObject _UVLightPrefab;
@@ -159,6 +159,8 @@ public class Player : MonoBehaviour
                 
                 // change da world. My final message, Goodbye.
                 Destroy(this.gameObject);
+                
+                _waveManager.onPlayerDeath();
                 
                 break;
             case 1:
