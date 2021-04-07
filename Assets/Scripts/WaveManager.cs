@@ -190,6 +190,7 @@ public class WaveManager : MonoBehaviour
                         level.StartupDescription = value;
                         break;
                     case Constants.LevelConstants.TimeBetweenSpawns:
+                        //this parsing needs to be done, as c# is retarded.
                         value = value.Replace(',', '.');
                         float.TryParse(value, NumberStyles.Any, CultureInfo.InvariantCulture, out float tbs);
                         level.TimeBetweenSpawns = tbs;
