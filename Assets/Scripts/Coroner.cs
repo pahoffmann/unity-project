@@ -62,7 +62,6 @@ public class Coroner : MonoBehaviour
         
         if (other.CompareTag(Constants.Tags.Vaccine))
         {
-            // TODO: Score via UIManager
             GameObject.FindObjectOfType<UIManager>().AddScore(score);
             Destroy(other.gameObject);
             Destroy(this.gameObject);
