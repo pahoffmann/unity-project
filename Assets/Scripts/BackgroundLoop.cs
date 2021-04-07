@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class BackgroundLoop : MonoBehaviour
 {
-
-    // TODO respawn background sprites for seamless background scrolling
     // TODO background sprite has border (not seamless)
     
     [SerializeField] private float speed;
