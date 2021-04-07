@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -189,7 +190,8 @@ public class WaveManager : MonoBehaviour
                         level.StartupDescription = value;
                         break;
                     case Constants.LevelConstants.TimeBetweenSpawns:
-                        float.TryParse(value, out float tbs);
+                        value = value.Replace(',', '.');
+                        float.TryParse(value, NumberStyles.Any, CultureInfo.InvariantCulture, out float tbs);
                         level.TimeBetweenSpawns = tbs;
                         Debug.Log("tbs: " + tbs);
                         break;
