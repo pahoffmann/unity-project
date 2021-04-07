@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using UnityEditor.Build.Reporting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -76,7 +77,8 @@ public class WaveManager : MonoBehaviour
 
         _doneSpawning = true;
     }
-
+    
+    
     void SpawnPrefab(String form)
     {
         switch (form)
@@ -91,6 +93,15 @@ public class WaveManager : MonoBehaviour
             default: //add more virus spawns
                 break;
         }
+    }
+
+    /// <summary>
+    /// Spawns the powerup passed to the method
+    /// </summary>
+    /// <param name="form">Form of the powerup, needs to be one of those specified in Constants.PowerupForms</param>
+    void SpawnPowerup(String form)
+    {
+        // add powerup spawns
     }
 
     void ReadLevelFiles()
