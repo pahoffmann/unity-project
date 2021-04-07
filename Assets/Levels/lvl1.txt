@@ -2,5 +2,5 @@ num:1
 type:normal
 msg1:It will go away soon...
 tbs:0,5
-enemies:Coroner-20;B117-5;Coroner-5;B117-3
+prefabs:UVLight-10;Coroner-20;UVLight-1;B117-5;Coroner-5;B117-3
 msg2:Good job, first wave is done m8

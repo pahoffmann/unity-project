@@ -9,11 +9,18 @@ using Random = UnityEngine.Random;
 
 public class WaveManager : MonoBehaviour
 {
+    //maybe add prefab and spawning methods to a utility class
+    
+    //virus prefabs
     [SerializeField] private GameObject _coronaPrefab;
     [SerializeField] private GameObject _b117Prefab;
     [SerializeField] private GameObject _bossPrefab;
     //todo: more prefabs?
     
+    
+    //powerup prefabs
+    [SerializeField] private GameObject _uVLightPowerUp;
+
     // UIManager shit
     [SerializeField] private UIManager _UIManager;
     
@@ -102,6 +109,10 @@ public class WaveManager : MonoBehaviour
                 break;
             case Constants.VirusForms.CoronaBase:
                 Instantiate(_coronaPrefab, new Vector3(Random.Range(Constants.Dimensions.BorderLeft, Constants.Dimensions.BorderRight), 8f, 0f), 
+                    Quaternion.identity, this.transform);
+                break;
+            case Constants.PowerUps.UVLight:
+                Instantiate(_uVLightPowerUp, new Vector3(Random.Range(Constants.Dimensions.BorderLeft, Constants.Dimensions.BorderRight), 8f, 0f), 
                     Quaternion.identity, this.transform);
                 break;
             default: //add more virus spawns
@@ -211,6 +222,14 @@ public class WaveManager : MonoBehaviour
                                     {
                                         level.SpawnOrder.Enqueue(Constants.VirusForms.CoronaB117);
                                     }
+                                    break;
+                                case Constants.PowerUps.UVLight:
+                                    for (int i = 0; i < number; i++)
+                                    {
+                                        level.SpawnOrder.Enqueue(Constants.PowerUps.UVLight);
+                                    }
+                                    break;
+                                default:
                                     break;
                                 // add if more virusses m8
                             }

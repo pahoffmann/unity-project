@@ -23,7 +23,7 @@ public static class Constants
 
     public readonly struct PowerUps
     {
-        // todo
+        public const String UVLight = "UVLight";
     }
 
     public readonly struct Dimensions
@@ -44,7 +44,7 @@ public static class Constants
         public const String StartupDescription = "msg1";
         public const String EndDescription = "msg2";
         public const String TimeBetweenSpawns = "tbs";
-        public const String NumEnemies = "enemies";
+        public const String NumEnemies = "prefabs";
     }
 
     public readonly struct LevelTypes
