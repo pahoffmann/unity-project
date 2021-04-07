@@ -8,10 +8,13 @@ public class SurprisePowerUp : MonoBehaviour
 
     private float _randomInt;
     
+
+    public AudioClip bling2;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        //bling = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -36,6 +39,8 @@ public class SurprisePowerUp : MonoBehaviour
         // collision handling
         if (other.CompareTag("Player"))
         {
+            Debug.Log("bling should be played");
+            AudioSource.PlayClipAtPoint(bling2, transform.position);
             SurpriseSurprise();
             //Debug.Log("surprise hit player");
             Destroy(this.gameObject);
