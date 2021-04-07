@@ -17,8 +17,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float _vaccinationRate = 0.3f;
     private float _nextVaccination = 0f;
 
-    // spawnManager shit
-    [SerializeField] private SpawnManager _spawnManager;
+    // wavemanager needs to know, when this dude is dead.
+    [SerializeField] private WaveManager _waveManager;
     
     // UV light shit
     [SerializeField] private GameObject _UVLightPrefab;
@@ -90,7 +90,12 @@ public class Player : MonoBehaviour
 
         // get transform.position once to avoid redundancy
         Vector3 pos = transform.position;
-        float ceiling = 4.5f, floor = -4.5f, leftWall = -9.5f, rightWall = 9.5f;
+        
+        // use values from constants class instead of hardcoding it.
+        float ceiling   = Constants.Dimensions.BorderTop, 
+              floor     = Constants.Dimensions.BorderBottom,
+              leftWall  = Constants.Dimensions.BorderLeft,
+              rightWall = Constants.Dimensions.BorderRight;
         
         // player boundaries
         // top, bottom
@@ -147,27 +152,16 @@ public class Player : MonoBehaviour
         switch (_lives)
         {
             case 0:
-                if (_spawnManager != null)
-                {
-                    // deactivate spawning
-                    _spawnManager.GetComponent<SpawnManager>().onPlayerDeath();
-                    
-                    // get the children of the SpawnManager (Corona) and destroy them
-                    Component[] coronaComponents = _spawnManager.GetComponentsInChildren(typeof(Coroner));
-                    foreach (Component coronaComponent in coronaComponents)
-                    {
-                        Destroy(coronaComponent.gameObject);
-                    }
-                    
-                    _UIManager.GameOver(true);
-                    
-                    // change da world. My final message, Goodbye.
-                    Destroy(this.gameObject);
-                }
-                else
-                {
-                    Debug.LogError("SpawnManager not assigned");
-                }
+                
+                //maybe destroy leftover viruses (stop spawning)
+
+                _UIManager.GameOver(true);
+                
+                // change da world. My final message, Goodbye.
+                Destroy(this.gameObject);
+                
+                _waveManager.onPlayerDeath();
+                
                 break;
             case 1:
                 // change the color when damaged

@@ -60,16 +60,16 @@ public class Coroner : MonoBehaviour
         if (name.Contains("B117"))
             score = 3;
         
-        if (other.CompareTag("Vaccine"))
+        if (other.CompareTag(Constants.Tags.Vaccine))
         {
             GameObject.FindObjectOfType<UIManager>().AddScore(score);
             Destroy(other.gameObject);
             Destroy(this.gameObject);
-        } else if (other.CompareTag("UVLight")) 
+        } else if (other.CompareTag(Constants.Tags.UVLight)) 
         {
             GameObject.FindObjectOfType<UIManager>().AddScore(score);
             Destroy(this.gameObject);
-        } else if (other.CompareTag("Player"))
+        } else if (other.CompareTag(Constants.Tags.Player))
         {
             other.GetComponent<Player>().Damage();
             Destroy(this.gameObject);
