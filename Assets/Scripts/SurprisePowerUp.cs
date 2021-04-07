@@ -48,6 +48,7 @@ public class SurprisePowerUp : MonoBehaviour
         
     }
 
+   // this function selects a random PowerUp as a surprise
     private void SurpriseSurprise()
     {
         _randomInt = Random.Range(0f, 4f);
@@ -55,7 +56,7 @@ public class SurprisePowerUp : MonoBehaviour
         if (_randomInt <= 1)
         {
             Debug.Log("SurprisePowerUp Nr1 was chosen" + _randomInt);
-            //needs to be implemented in player so it can be called:  _player.SideShoots();
+            //needs to be implemented in player so it can be called:  _player.ActivateSideShoots();
             
         }
 
