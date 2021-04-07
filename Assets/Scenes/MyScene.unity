@@ -1138,6 +1138,16 @@ MonoBehaviour:
     type: 3}
   _b117Prefab: {fileID: 7184966149125962772, guid: 574256e6327f59949bcd187090b2cd37,
     type: 3}
+  _484KPrefab: {fileID: 301468277123194351, guid: 2b68bf166c539334f849642f2e5b82da,
+    type: 3}
+  _b1128Prefab: {fileID: 8826183865323070921, guid: 11afa07fb930b7e45be1de0d2d11fcec,
+    type: 3}
+  _n501yPrefab: {fileID: 4452067694469217574, guid: 087b4b7cc0640234fb8708ff84d6c589,
+    type: 3}
+  _p681hPrefab: {fileID: 9145543099913179121, guid: af190908731491947b38b490403ae4d9,
+    type: 3}
+  _y144Prefab: {fileID: 8514958143585726508, guid: dd5da1cdd7b51ba4aa9b367e1cb11725,
+    type: 3}
   _bossPrefab: {fileID: 0}
   _uVLightPowerUp: {fileID: 1724212754760185611, guid: adc3e64e25735ed47ad39f7d8410c684,
     type: 3}

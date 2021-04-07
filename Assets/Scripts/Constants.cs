@@ -15,8 +15,13 @@ public static class Constants
     
     public readonly struct VirusForms
     {
-        public const String CoronaBase = "Coroner";
-        public const String CoronaB117 = "B117";
+        public const String CoronaBase = "C0";
+        public const String CoronaB117 = "C1";
+        public const String Corona484K = "C2";
+        public const String CoronaB1128 = "C3";
+        public const String CoronaN501Y = "C4";
+        public const String CoronaP681H = "C5";
+        public const String CoronaY144 = "C6";
         //insert more here
         //maybe use tags instead??
     }

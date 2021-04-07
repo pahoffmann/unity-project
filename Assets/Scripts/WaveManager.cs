@@ -13,6 +13,11 @@ public class WaveManager : MonoBehaviour
     //virus prefabs
     [SerializeField] private GameObject _coronaPrefab;
     [SerializeField] private GameObject _b117Prefab;
+    [SerializeField] private GameObject _484KPrefab;
+    [SerializeField] private GameObject _b1128Prefab;
+    [SerializeField] private GameObject _n501yPrefab;
+    [SerializeField] private GameObject _p681hPrefab;
+    [SerializeField] private GameObject _y144Prefab;
     [SerializeField] private GameObject _bossPrefab;
     //todo: more prefabs?
     
@@ -108,6 +113,26 @@ public class WaveManager : MonoBehaviour
                 break;
             case Constants.VirusForms.CoronaBase:
                 Instantiate(_coronaPrefab, new Vector3(Random.Range(Constants.Dimensions.BorderLeft, Constants.Dimensions.BorderRight), 8f, 0f), 
+                    Quaternion.identity, this.transform);
+                break;
+            case Constants.VirusForms.Corona484K:
+                Instantiate(_484KPrefab, new Vector3(Random.Range(Constants.Dimensions.BorderLeft, Constants.Dimensions.BorderRight), 8f, 0f), 
+                    Quaternion.identity, this.transform);
+                break;
+            case Constants.VirusForms.CoronaB1128:
+                Instantiate(_b1128Prefab, new Vector3(Random.Range(Constants.Dimensions.BorderLeft, Constants.Dimensions.BorderRight), 8f, 0f), 
+                    Quaternion.identity, this.transform);
+                break;
+            case Constants.VirusForms.CoronaY144:
+                Instantiate(_y144Prefab, new Vector3(Random.Range(Constants.Dimensions.BorderLeft, Constants.Dimensions.BorderRight), 8f, 0f), 
+                    Quaternion.identity, this.transform);
+                break;
+            case Constants.VirusForms.CoronaN501Y:
+                Instantiate(_n501yPrefab, new Vector3(Random.Range(Constants.Dimensions.BorderLeft, Constants.Dimensions.BorderRight), 8f, 0f), 
+                    Quaternion.identity, this.transform);
+                break;
+            case Constants.VirusForms.CoronaP681H:
+                Instantiate(_p681hPrefab, new Vector3(Random.Range(Constants.Dimensions.BorderLeft, Constants.Dimensions.BorderRight), 8f, 0f), 
                     Quaternion.identity, this.transform);
                 break;
             case Constants.PowerUps.UVLight:
@@ -216,7 +241,41 @@ public class WaveManager : MonoBehaviour
                                         level.SpawnOrder.Enqueue(Constants.VirusForms.CoronaBase);
                                     }
                                     break;
-                                
+                                case Constants.VirusForms.Corona484K:
+                                    Debug.Log("Its corona");
+                                    for (int i = 0; i < number; i++)
+                                    {
+                                        level.SpawnOrder.Enqueue(Constants.VirusForms.Corona484K);
+                                    }
+                                    break;
+                                case Constants.VirusForms.CoronaB1128:
+                                    Debug.Log("Its corona");
+                                    for (int i = 0; i < number; i++)
+                                    {
+                                        level.SpawnOrder.Enqueue(Constants.VirusForms.CoronaB1128);
+                                    }
+                                    break;
+                                case Constants.VirusForms.CoronaY144:
+                                    Debug.Log("Its corona");
+                                    for (int i = 0; i < number; i++)
+                                    {
+                                        level.SpawnOrder.Enqueue(Constants.VirusForms.CoronaY144);
+                                    }
+                                    break;
+                                case Constants.VirusForms.CoronaN501Y:
+                                    Debug.Log("Its corona");
+                                    for (int i = 0; i < number; i++)
+                                    {
+                                        level.SpawnOrder.Enqueue(Constants.VirusForms.CoronaN501Y);
+                                    }
+                                    break;
+                                case Constants.VirusForms.CoronaP681H:
+                                    Debug.Log("Its corona");
+                                    for (int i = 0; i < number; i++)
+                                    {
+                                        level.SpawnOrder.Enqueue(Constants.VirusForms.CoronaP681H);
+                                    }
+                                    break;
                                 case Constants.VirusForms.CoronaB117:
                                     Debug.Log("Its b117");
                                     for (int i = 0; i < number; i++)
