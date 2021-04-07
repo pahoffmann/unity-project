@@ -2,5 +2,5 @@ num:1
 type:normal
 msg1:It will go away soon...
 tbs:0,3
-enemies:B117-5
+prefabs:B117-5
 msg2:Good job, first wave is done m8
