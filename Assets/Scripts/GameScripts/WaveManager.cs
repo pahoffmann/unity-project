@@ -145,8 +145,9 @@ public class WaveManager : MonoBehaviour
                     Quaternion.identity, this.transform);
                 break;
             case Constants.Bosses.Bat:
-                Instantiate(_batPrefab, new Vector3(0, Constants.Dimensions.BorderTop + 2, 0f), 
-                    Quaternion.identity, this.transform);
+                GameObject bat = Instantiate(_batPrefab, new Vector3(0, Constants.Dimensions.BorderTop + 2, 0f), 
+                    Quaternion.identity, this.transform) as GameObject;
+                bat.GetComponent<BatBoss>()._lives = 100;
                 break;
             default: //add more virus spawns
                 break;

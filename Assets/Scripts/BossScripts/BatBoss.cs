@@ -12,6 +12,7 @@ public class BatBoss : MonoBehaviour
     private float _speed = 4f;
     private bool _finishedRotating = true;
     private int _maxClones = 4;
+    public int _lives { get; set; }
     void Start()
     {
         transform.Rotate(new Vector3(30, 180, 0), Space.Self);
@@ -64,6 +65,8 @@ public class BatBoss : MonoBehaviour
                     new Vector3(Random.Range(Constants.Dimensions.BorderLeft,Constants.Dimensions.BorderRight), transform.position.y, 0), 
                     Quaternion.identity) 
                     as GameObject;
+                clone.GetComponent<BatBoss>()._lives = 1;
+                //TODO: scaling only for clones of the original
                 clone.transform.localScale = new Vector3(clone.transform.localScale.x * 0.5f, clone.transform.localScale.y * 0.5f, clone.transform.localScale.z * 0.5f);
                 clone.transform.SetParent(transform.parent);
             }
@@ -79,8 +82,12 @@ public class BatBoss : MonoBehaviour
         }
         else if (other.CompareTag(Constants.Tags.Vaccine))
         {
-            Destroy(gameObject);
             Destroy(other.gameObject);
+            _lives -= 1;
+            if (_lives == 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
