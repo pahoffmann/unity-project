@@ -33,6 +33,11 @@ public static class Constants
     {
         public const String UVLight = "UVLight";
     }
+
+    public readonly struct Bosses
+    {
+        public const String Bat = "Bat";
+    }
     
     /// <summary>
     /// Stores the dimensions of the scene

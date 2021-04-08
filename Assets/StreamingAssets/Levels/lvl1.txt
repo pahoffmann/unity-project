@@ -1,6 +1,6 @@
 num:1
-type:normal
+type:boss
 msg1:It will go away soon...
 tbs:0.5
-prefabs:UVLight-10;C0-20;UVLight-1;C1-5;C0-5;C1-3
+prefabs:Bat-1
 msg2:Good job, first wave is done m8

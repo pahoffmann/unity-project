@@ -19,7 +19,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private GameObject _n501yPrefab;
     [SerializeField] private GameObject _p681hPrefab;
     [SerializeField] private GameObject _y144Prefab;
-    [SerializeField] private GameObject _bossPrefab;
+    [SerializeField] private GameObject _batPrefab;
     //todo: more prefabs?
     
     
@@ -90,6 +90,10 @@ public class WaveManager : MonoBehaviour
 
         int levelIndex = curLevel - 1;
 
+        if (levels[_currentLevel].Type == Constants.LevelTypes.Boss)
+        {
+            // shake the camera alla
+        }
         // while we are not done spawning
         while (_currentLevel == curLevel && levels[levelIndex].SpawnOrder.Count > 0)
         {
@@ -138,6 +142,10 @@ public class WaveManager : MonoBehaviour
                 break;
             case Constants.PowerUps.UVLight:
                 Instantiate(_uVLightPowerUp, new Vector3(Random.Range(Constants.Dimensions.BorderLeft, Constants.Dimensions.BorderRight), 8f, 0f), 
+                    Quaternion.identity, this.transform);
+                break;
+            case Constants.Bosses.Bat:
+                Instantiate(_batPrefab, new Vector3(0, Constants.Dimensions.BorderTop + 2, 0f), 
                     Quaternion.identity, this.transform);
                 break;
             default: //add more virus spawns
@@ -289,6 +297,9 @@ public class WaveManager : MonoBehaviour
                                     {
                                         level.SpawnOrder.Enqueue(Constants.PowerUps.UVLight);
                                     }
+                                    break;
+                                case Constants.Bosses.Bat:
+                                    level.SpawnOrder.Enqueue(Constants.Bosses.Bat);
                                     break;
                                 default:
                                     break;

@@ -1149,7 +1149,7 @@ MonoBehaviour:
     type: 3}
   _y144Prefab: {fileID: 8514958143585726508, guid: dd5da1cdd7b51ba4aa9b367e1cb11725,
     type: 3}
-  _bossPrefab: {fileID: 0}
+  _batPrefab: {fileID: 1625221395402176, guid: c9951ca0f61167b4593ffe21b0a089c8, type: 3}
   _uVLightPowerUp: {fileID: 1724212754760185611, guid: adc3e64e25735ed47ad39f7d8410c684,
     type: 3}
   _UIManager: {fileID: 285330842}
