@@ -25,12 +25,18 @@ public static class Constants
         //insert more here
         //maybe use tags instead??
     }
-
+    
+    /// <summary>
+    /// stores the different powerups which are defined here
+    /// </summary>
     public readonly struct PowerUps
     {
         public const String UVLight = "UVLight";
     }
-
+    
+    /// <summary>
+    /// Stores the dimensions of the scene
+    /// </summary>
     public readonly struct Dimensions
     {
         public static float BorderLeft   = -9.5f;
@@ -51,7 +57,10 @@ public static class Constants
         public const String TimeBetweenSpawns = "tbs";
         public const String NumEnemies = "prefabs";
     }
-
+    
+    /// <summary>
+    /// Types of levels, right now there are only waves which are considered as normal, and boss waves
+    /// </summary>
     public readonly struct LevelTypes
     {
         public const String Normal = "normal";

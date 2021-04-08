@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class WaveManager : MonoBehaviour
@@ -41,19 +42,27 @@ public class WaveManager : MonoBehaviour
     {
         ReadLevelFiles();
 
-        StartCoroutine(WaveCoroutine(1));
+        StartCoroutine(WaveCoroutine(_currentLevel));
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Handles the game logic
+    /// </summary>
     void Update()
     {
         if (_gameOver)
         {
             _UIManager.GameOver(true);
+            
+            // wait or do something else, you know, like hitting sebastian or smth
+            
+            //SceneManager.LoadScene("Menu");
         }
         // all virusses destroyed
         if (transform.childCount == 0 && _doneSpawning)
         {
+            // TODO: display lvl done message
+            
             _doneSpawning = false; // reset
             
             //all levels done?
@@ -63,19 +72,11 @@ public class WaveManager : MonoBehaviour
             }
             else
             {
+                // increase current level and start next level
                 _currentLevel++;
                 StartCoroutine(WaveCoroutine(_currentLevel));
             }
         }
-        // if not yet every virus of current wave has been spawned && timer is ok
-            // spawn
-            //adjust timer
-        // else if every virus has been destroyed
-            // continue to next wave (e.g. remove first element of list)
-            // display end text
-            // display start text
-        // else
-            //do nothin bitch
     }
     
     /// <summary>
@@ -85,8 +86,8 @@ public class WaveManager : MonoBehaviour
     /// <returns></returns>
     IEnumerator WaveCoroutine(int curLevel)
     {
-        Debug.Log("Level:" + curLevel);
-        Debug.Log("Num Levels: " + levels.Count);
+        // TODO: display level start message
+
         int levelIndex = curLevel - 1;
 
         // while we are not done spawning
@@ -165,7 +166,7 @@ public class WaveManager : MonoBehaviour
     /// </summary>
     void ReadLevelFiles()
     {
-        foreach (var file in Directory.EnumerateFiles("Assets/Levels"))
+        foreach (var file in Directory.EnumerateFiles(Application.streamingAssetsPath + "/Levels"))
         {
             Debug.Log(file);
             // if the file does not start with the appropriate sequence we skip it, as it is not considered a lvl file
