@@ -173,6 +173,7 @@ GameObject:
   - component: {fileID: 7567588302445657592}
   - component: {fileID: 8990603787295432628}
   - component: {fileID: 5135219608177337725}
+  - component: {fileID: 3482464381954943508}
   m_Layer: 0
   m_Name: Treasure_Chest
   m_TagString: Powerup
@@ -225,3 +226,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3482464381954943508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7567588302445594836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 271f3e66527dca84399503df902f46a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneysound: {fileID: 8300000, guid: 69e36dbddd3053044bc4c4fe312be618, type: 3}
