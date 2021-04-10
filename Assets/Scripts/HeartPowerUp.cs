@@ -34,7 +34,7 @@ public class HeartPowerUp : MonoBehaviour
             AudioSource.PlayClipAtPoint(nicesound, transform.position);
             Debug.Log("heart hit player");
             
-            //hier muss noch die Funktion hin, die das Leben um 1 erhöht
+            //calls the player function to add a life
             other.GetComponent<Player>().OneMoreLife();
             
             

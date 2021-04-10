@@ -8,12 +8,8 @@ public class Treasure : MonoBehaviour
 
 
     public AudioClip moneysound;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        //bling = GetComponent<AudioSource>();
-    }
+
+    [SerializeField] private int _score = 20;
 
     // Update is called once per frame
     void Update()
@@ -36,8 +32,9 @@ public class Treasure : MonoBehaviour
             AudioSource.PlayClipAtPoint(moneysound, transform.position);
             Debug.Log("treasure hit player");
             
-            //hier muss noch die Funktion hin, die dem Score mehr Punkte gibt (das Power up gibt einem Punkte)
+            //how many points should the treasure give you? I set it to 20
             
+            GameObject.FindObjectOfType<UIManager>().AddScore(_score);
             
             
             Destroy(this.gameObject);

@@ -138,7 +138,7 @@ public class Player : MonoBehaviour
         }
     }
 
-   //gets called by the HeartPowerUp script
+   //gets called by the HeartPowerUp script and adds a life:D
     public void OneMoreLife()
     {
         _lives++;
