@@ -19,18 +19,13 @@ public class Treasure : MonoBehaviour
     void Update()
     {
         transform.Translate(0f, -_treasurePowerUpSpeed * Time.deltaTime, 0f, Space.World);
-        
-        BottomBoundary();
-    }
-
-    private void BottomBoundary()
-    {
-        Debug.Log("Bottom boundary has been called");
         if (transform.position.y < -6f)
         {
+            Debug.Log("Bottom boundary has been called");
             Destroy(this.gameObject);
         }
     }
+    
     
     private void OnTriggerEnter(Collider other)
     {
