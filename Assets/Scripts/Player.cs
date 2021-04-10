@@ -138,6 +138,13 @@ public class Player : MonoBehaviour
         }
     }
 
+   //gets called by the HeartPowerUp script
+    public void OneMoreLife()
+    {
+        _lives++;
+        _UIManager.setLives(_lives);
+    }
+    
     /// <summary>
     /// damages the player if hit by Corona
     /// </summary>
@@ -209,4 +216,5 @@ public class Player : MonoBehaviour
         _useUVLight = false;
         _vaccinationRate = 0.3f;
     }
+    
 }

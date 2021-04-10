@@ -8,6 +8,8 @@ public class HeartPowerUp : MonoBehaviour
 
 
     public AudioClip nicesound;
+
+    private Player _player;
     
     
 
@@ -33,6 +35,7 @@ public class HeartPowerUp : MonoBehaviour
             Debug.Log("heart hit player");
             
             //hier muss noch die Funktion hin, die das Leben um 1 erhöht
+            other.GetComponent<Player>().OneMoreLife();
             
             
             
