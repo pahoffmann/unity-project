@@ -26,6 +26,9 @@ public class Player : MonoBehaviour
     
     // UIManager shit
     [SerializeField] private UIManager _UIManager;
+    
+    //DamageSound
+    public AudioClip notGood;
 
     // Start is called before the first frame update
     void Start()
@@ -142,6 +145,8 @@ public class Player : MonoBehaviour
     {
         // reduce amount of lives
         _lives--;
+        //sound effect
+        AudioSource.PlayClipAtPoint(notGood, transform.position);
         _UIManager.setLives(_lives);
 
         switch (_lives)
