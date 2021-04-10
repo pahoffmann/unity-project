@@ -74,4 +74,5 @@ public static class Constants
     
     // base name of the levels
     public static String levelFileBase = "lvl";
+    public static String highscoreFile = "Highscore.txt"; // inside streaming assets folder
 }
