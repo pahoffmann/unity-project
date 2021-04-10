@@ -90,7 +90,7 @@ public class WaveManager : MonoBehaviour
 
         int levelIndex = curLevel - 1;
 
-        if (levels[_currentLevel].Type == Constants.LevelTypes.Boss)
+        if (levels[levelIndex].Type == Constants.LevelTypes.Boss)
         {
             // shake the camera alla
         }
@@ -147,7 +147,7 @@ public class WaveManager : MonoBehaviour
             case Constants.Bosses.Bat:
                 GameObject bat = Instantiate(_batPrefab, new Vector3(0, Constants.Dimensions.BorderTop + 2, 0f), 
                     Quaternion.identity, this.transform) as GameObject;
-                bat.GetComponent<BatBoss>()._lives = 100;
+                bat.GetComponent<BatBoss>()._lives = 10;
                 break;
             default: //add more virus spawns
                 break;
