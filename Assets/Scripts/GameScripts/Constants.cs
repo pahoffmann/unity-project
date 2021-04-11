@@ -32,6 +32,9 @@ public static class Constants
     public readonly struct PowerUps
     {
         public const String UVLight = "UVLight";
+        public const String Heart = "Heart";
+        public const String TreasureChest = "TC";
+        public const String Random = "Random";
     }
 
     public readonly struct Bosses

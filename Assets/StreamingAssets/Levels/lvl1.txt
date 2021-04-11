@@ -1,6 +1,6 @@
 num:1
 type:boss
 msg1:It will go away soon...
-tbs:0.01
-prefabs:Bat-1
+tbs:1.0
+prefabs:Heart-20;TC-1;Random-1;Bat-1
 msg2:Good job, first wave is done m8

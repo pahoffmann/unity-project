@@ -25,6 +25,9 @@ public class WaveManager : MonoBehaviour
     
     //powerup prefabs
     [SerializeField] private GameObject _uVLightPowerUp;
+    [SerializeField] private GameObject _heartPowerUp;
+    [SerializeField] private GameObject _treasureChestPowerUp;
+    [SerializeField] private GameObject _randomPowerUp;
 
     // UIManager shit
     [SerializeField] private UIManager _UIManager;
@@ -147,7 +150,19 @@ public class WaveManager : MonoBehaviour
             case Constants.Bosses.Bat:
                 GameObject bat = Instantiate(_batPrefab, new Vector3(0, Constants.Dimensions.BorderTop + 2, 0f), 
                     Quaternion.identity, this.transform) as GameObject;
-                bat.GetComponent<BatBoss>()._lives = 10;
+                bat.GetComponent<BatBoss>()._lives = 10; // this should possibly be defined somewhere else
+                break;
+            case Constants.PowerUps.Heart:
+                Instantiate(_heartPowerUp, new Vector3(0, Constants.Dimensions.BorderTop + 2, 0f), 
+                    Quaternion.identity, this.transform);
+                break;
+            case Constants.PowerUps.TreasureChest:
+                Instantiate(_treasureChestPowerUp, new Vector3(0, Constants.Dimensions.BorderTop + 2, 0f), 
+                    Quaternion.identity, this.transform);
+                break;
+            case Constants.PowerUps.Random:
+                Instantiate(_randomPowerUp, new Vector3(0, Constants.Dimensions.BorderTop + 2, 0f), 
+                    Quaternion.identity, this.transform);
                 break;
             default: //add more virus spawns
                 break;
@@ -245,14 +260,12 @@ public class WaveManager : MonoBehaviour
                             switch (virus)
                             {
                                 case Constants.VirusForms.CoronaBase:
-                                    Debug.Log("Its corona");
                                     for (int i = 0; i < number; i++)
                                     {
                                         level.SpawnOrder.Enqueue(Constants.VirusForms.CoronaBase);
                                     }
                                     break;
                                 case Constants.VirusForms.Corona484K:
-                                    Debug.Log("Its corona");
                                     for (int i = 0; i < number; i++)
                                     {
                                         level.SpawnOrder.Enqueue(Constants.VirusForms.Corona484K);
@@ -297,6 +310,24 @@ public class WaveManager : MonoBehaviour
                                     for (int i = 0; i < number; i++)
                                     {
                                         level.SpawnOrder.Enqueue(Constants.PowerUps.UVLight);
+                                    }
+                                    break;
+                                case Constants.PowerUps.Heart:
+                                    for (int i = 0; i < number; i++)
+                                    {
+                                        level.SpawnOrder.Enqueue(Constants.PowerUps.Heart);
+                                    }
+                                    break;
+                                case Constants.PowerUps.TreasureChest:
+                                    for (int i = 0; i < number; i++)
+                                    {
+                                        level.SpawnOrder.Enqueue(Constants.PowerUps.TreasureChest);
+                                    }
+                                    break;
+                                case Constants.PowerUps.Random:
+                                    for (int i = 0; i < number; i++)
+                                    {
+                                        level.SpawnOrder.Enqueue(Constants.PowerUps.Random);
                                     }
                                     break;
                                 case Constants.Bosses.Bat:
