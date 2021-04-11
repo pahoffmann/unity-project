@@ -8,6 +8,9 @@ public class Coroner : MonoBehaviour
 {
     
     [SerializeField] private float _coronaSpeed = 3f;
+    [SerializeField] private float _fasterCoronaDuration = 7f;
+    [SerializeField] private float _slowerCoronaDuration = 7f;
+
     [SerializeField] private float _b117DirectionalVariance = 30f;
 
     // Start is called before the first frame update
@@ -76,4 +79,30 @@ public class Coroner : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    public void FasterCorona()
+    {
+        StartCoroutine(FasterCoronaCoroutine(_fasterCoronaDuration));
+    }
+
+    IEnumerator FasterCoronaCoroutine(float duration)
+    {
+        _coronaSpeed = 7f;
+        yield return new WaitForSeconds(duration);
+        _coronaSpeed = 3f;
+    }
+    
+
+    public void SlowerCorona()
+    {
+        StartCoroutine(SlowerCoronaCoroutine(_slowerCoronaDuration));
+    }
+    
+    IEnumerator SlowerCoronaCoroutine(float duration)
+    {
+        _coronaSpeed = 1f;
+        yield return new WaitForSeconds(duration);
+        _coronaSpeed = 3f;
+    }
+    
 }

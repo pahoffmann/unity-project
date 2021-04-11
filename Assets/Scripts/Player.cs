@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
 
     // vaccine shit
     [SerializeField] private GameObject _vaccinePrefab;
+    [SerializeField] private GameObject _sideVaccinePrefab;
+    private bool _sideShoots = false;
     [SerializeField] private float _vaccinationRate = 0.3f;
     private float _nextVaccination = 0f;
 
@@ -54,6 +56,7 @@ public class Player : MonoBehaviour
         PlayerMovement();
         RotatePlayer();
         Vaccine();
+        //ActivateSideShoots2();
     }
     
     /// <summary>
@@ -135,8 +138,44 @@ public class Player : MonoBehaviour
                 Instantiate(_vaccinePrefab, transform.position + new Vector3(0f, 0.7f, 0f),
                     Quaternion.identity);
             }
+
+            if (_sideShoots)
+            {
+                Instantiate(_sideVaccinePrefab, transform.position + new Vector3(0f, 0.7f, 0f),
+                    Quaternion.identity);
+            }
         }
     }
+
+    //part of the SurprisePowerUp program
+    public void ActivateSideShoots(float duration)
+    {
+        Debug.Log("ActivateSideShoots was called");
+        StartCoroutine(ActivateSideShootsCoroutine(duration));
+    }
+
+    IEnumerator ActivateSideShootsCoroutine (float duration)
+    {
+        Debug.Log("ActivateSideShootsCoroutine was called");
+        _sideShoots = true;
+        yield return new WaitForSeconds(duration);
+        _sideShoots = false;
+    }
+    /*private void ActivateSideShoots2()
+    {
+        //Debug.Log("ActivateSideShoots2 was called");
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > _nextVaccination && _sideShoots)
+        {
+             
+                 _nextVaccination = Time.time + _vaccinationRate;
+                 Debug.Log("sideshoots should be instantiated");
+                 Instantiate(_sideVaccinePrefab, transform.position + new Vector3(0f, 0.7f, 0f),
+                                Quaternion.identity);
+        }
+       
+        
+    }*/
+    
 
    //gets called by the HeartPowerUp script and adds a life:D
     public void OneMoreLife()
