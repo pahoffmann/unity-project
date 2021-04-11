@@ -24,6 +24,7 @@ public static class Constants
         public const String CoronaY144 = "C6";
         //insert more here
         //maybe use tags instead??
+        public const String FriendlyShip = "Ship";
     }
     
     /// <summary>

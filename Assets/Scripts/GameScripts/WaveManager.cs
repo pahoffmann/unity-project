@@ -19,6 +19,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private GameObject _n501yPrefab;
     [SerializeField] private GameObject _p681hPrefab;
     [SerializeField] private GameObject _y144Prefab;
+    [SerializeField] private GameObject _friendlyShipPrefab;
     [SerializeField] private GameObject _batPrefab;
     //todo: more prefabs?
     
@@ -142,6 +143,10 @@ public class WaveManager : MonoBehaviour
                 break;
             case Constants.VirusForms.CoronaP681H:
                 Instantiate(_p681hPrefab, new Vector3(Random.Range(Constants.Dimensions.BorderLeft, Constants.Dimensions.BorderRight), 8f, 0f), 
+                    Quaternion.identity, this.transform);
+                break;
+            case Constants.VirusForms.FriendlyShip:
+                Instantiate(_friendlyShipPrefab, new Vector3(Random.Range(Constants.Dimensions.BorderLeft, Constants.Dimensions.BorderRight), 8f, 0f), 
                     Quaternion.identity, this.transform);
                 break;
             case Constants.PowerUps.UVLight:
@@ -277,38 +282,39 @@ public class WaveManager : MonoBehaviour
                                     }
                                     break;
                                 case Constants.VirusForms.CoronaB1128:
-                                    Debug.Log("Its corona");
                                     for (int i = 0; i < number; i++)
                                     {
                                         level.SpawnOrder.Enqueue(Constants.VirusForms.CoronaB1128);
                                     }
                                     break;
                                 case Constants.VirusForms.CoronaY144:
-                                    Debug.Log("Its corona");
                                     for (int i = 0; i < number; i++)
                                     {
                                         level.SpawnOrder.Enqueue(Constants.VirusForms.CoronaY144);
                                     }
                                     break;
                                 case Constants.VirusForms.CoronaN501Y:
-                                    Debug.Log("Its corona");
                                     for (int i = 0; i < number; i++)
                                     {
                                         level.SpawnOrder.Enqueue(Constants.VirusForms.CoronaN501Y);
                                     }
                                     break;
                                 case Constants.VirusForms.CoronaP681H:
-                                    Debug.Log("Its corona");
                                     for (int i = 0; i < number; i++)
                                     {
                                         level.SpawnOrder.Enqueue(Constants.VirusForms.CoronaP681H);
                                     }
                                     break;
                                 case Constants.VirusForms.CoronaB117:
-                                    Debug.Log("Its b117");
                                     for (int i = 0; i < number; i++)
                                     {
                                         level.SpawnOrder.Enqueue(Constants.VirusForms.CoronaB117);
+                                    }
+                                    break;
+                                case Constants.VirusForms.FriendlyShip:
+                                    for (int i = 0; i < number; i++)
+                                    {
+                                        level.SpawnOrder.Enqueue(Constants.VirusForms.FriendlyShip);
                                     }
                                     break;
                                 case Constants.PowerUps.UVLight:
