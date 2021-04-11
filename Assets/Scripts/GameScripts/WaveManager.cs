@@ -147,7 +147,7 @@ public class WaveManager : MonoBehaviour
                 break;
             case Constants.VirusForms.FriendlyShip:
                 Instantiate(_friendlyShipPrefab, new Vector3(Random.Range(Constants.Dimensions.BorderLeft, Constants.Dimensions.BorderRight), 8f, 0f), 
-                    Quaternion.identity, this.transform);
+                    Quaternion.Euler(20, 0, 180), this.transform);
                 break;
             case Constants.PowerUps.UVLight:
                 Instantiate(_uVLightPowerUp, new Vector3(Random.Range(Constants.Dimensions.BorderLeft, Constants.Dimensions.BorderRight), 8f, 0f), 

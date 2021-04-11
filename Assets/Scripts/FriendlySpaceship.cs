@@ -9,7 +9,7 @@ public class FriendlySpaceship : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.up * _speed * Time.deltaTime);
+        transform.Translate(Vector3.down * _speed * Time.deltaTime, Space.World);
         if (transform.position.y < -6f)
         {
             GameObject.FindObjectOfType<UIManager>().AddScore(1);
