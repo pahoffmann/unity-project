@@ -110,8 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a4e3a8f361b6c246a979a5c4ec47226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bling: {fileID: 3291287116966719932, guid: 2a8d61784314a974893fcf8fa6244764, type: 3}
-  bling2: {fileID: 8300000, guid: 4d6de7f6df56b4446badd0f5b51c1966, type: 3}
+  bling2: {fileID: 8300000, guid: 8398ed33477517e4c88c493081a78714, type: 3}
 --- !u!54 &1772281999
 Rigidbody:
   m_ObjectHideFlags: 0
