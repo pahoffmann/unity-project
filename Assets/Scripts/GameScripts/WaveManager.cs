@@ -53,8 +53,8 @@ public class WaveManager : MonoBehaviour
         if (_gameOver)
         {
             _UIManager.GameOver(true);
-            
-            // wait or do something else, you know, like hitting sebastian or smth
+             Destroy(gameObject);
+             // wait or do something else, you know, like hitting sebastian or smth
             
             //SceneManager.LoadScene("Menu");
         }

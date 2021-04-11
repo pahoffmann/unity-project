@@ -533,7 +533,7 @@ MonoBehaviour:
   _livesText: {fileID: 840922386}
   _gameOverText: {fileID: 1600940900}
   _inputText: {fileID: 459982515}
-  displayText: {fileID: 0}
+  _gameOverScore: {fileID: 1013814564}
   gameOverScreen: {fileID: 209920350}
   gameUI: {fileID: 546824976}
 --- !u!1 &398865585

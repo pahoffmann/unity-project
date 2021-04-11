@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,12 +12,11 @@ public class UIManager : MonoBehaviour
 {
     
     private int _score = 0;
-    private string name;
     [SerializeField] private Text _scoreText;
     [SerializeField] private Text _livesText;
     [SerializeField] private TextMeshProUGUI _gameOverText;
     [SerializeField] private TextMeshProUGUI _inputText;
-    public Text displayText;
+    [SerializeField] private TextMeshProUGUI _gameOverScore;
     public GameObject gameOverScreen;
     public GameObject gameUI;
     
@@ -46,14 +48,18 @@ public class UIManager : MonoBehaviour
     {
         gameUI.SetActive(false);
         gameOverScreen.SetActive(true);
+        _gameOverScore.text = "Score: " + _score;
         //_gameOverText.enabled = gameOver;
         //_gameOverText.text = "Game Over\nYour Score: " + _score;
     }
 
     public void toMainMenu()
     {
-        name = _inputText.text;
+        // if the player entered a name, we save the score
+        if (_inputText.text.Length > 0)
+        {
+            File.AppendAllText(Application.streamingAssetsPath + "/" + Constants.highscoreFile,  Environment.NewLine + _inputText.text + "-" + _score);
+        }
         SceneManager.LoadScene("Menu");
     }
-    
 }
