@@ -20,19 +20,4 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
-
-    public void ReadHighscores()
-    {
-        var lines = File.ReadLines(Application.streamingAssetsPath + "/" + Constants.highscoreFile);
-        SortedDictionary<string, int> highscoreList = new SortedDictionary<string, int>();
-        
-        foreach (var line in lines)
-        {
-            var split = line.Split('-');
-            var player = split[0];
-            var score = split[1];
-            
-            highscoreList.Add(player, int.Parse(score));
-        }
-    }
 }
