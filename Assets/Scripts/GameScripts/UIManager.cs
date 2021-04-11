@@ -3,20 +3,26 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
     
     private int _score = 0;
+    private string name;
     [SerializeField] private Text _scoreText;
     [SerializeField] private Text _livesText;
-    [SerializeField] private Text _gameOverText;
+    [SerializeField] private TextMeshProUGUI _gameOverText;
+    [SerializeField] private TextMeshProUGUI _inputText;
+    public Text displayText;
+    public GameObject gameOverScreen;
+    public GameObject gameUI;
     
     // Start is called before the first frame update
     void Start()
     {
         _scoreText.text = "Score: " + _score;
-        GameOver(false);
+        gameOverScreen.SetActive(false);
     }
 
     // Update is called once per frame
@@ -38,7 +44,21 @@ public class UIManager : MonoBehaviour
 
     public void GameOver(bool gameOver)
     {
-        _gameOverText.enabled = gameOver;
-        _gameOverText.text = "Game Over\nYour Score: " + _score;
+        gameUI.SetActive(false);
+        gameOverScreen.SetActive(true);
+        //_gameOverText.enabled = gameOver;
+        //_gameOverText.text = "Game Over\nYour Score: " + _score;
     }
+
+    public void readName()
+    {
+        name = _inputText.text;
+        displayText.text = "Hello " + name;
+    }
+
+    public void toMainMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+    
 }
