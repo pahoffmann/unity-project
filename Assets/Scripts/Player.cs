@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -7,6 +8,7 @@ public class Player : MonoBehaviour
 {
     // player shit
     [SerializeField] private float speed = 15f;
+    [SerializeField] private float _fasterPlayerDuration = 7f;
     [SerializeField] private int _lives = 3;
     private MaterialPropertyBlock _mpb;
     private Color _orange = new Color(1f, 0.5f, 0f);
@@ -31,6 +33,8 @@ public class Player : MonoBehaviour
     
     //DamageSound
     public AudioClip notGood;
+    
+    [SerializeField] private GameObject _shieldprefab;
 
     // Start is called before the first frame update
     void Start()
@@ -254,6 +258,37 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(duration);
         _useUVLight = false;
         _vaccinationRate = 0.3f;
+    }
+    
+    public void Faster()
+    {
+        Debug.Log("Faster Player has been called");
+        StartCoroutine(FasterPlayerCoroutine(_fasterPlayerDuration));
+    }
+
+    IEnumerator FasterPlayerCoroutine(float duration)
+    {
+        speed = 30f;
+        yield return new WaitForSeconds(duration);
+        speed = 15f;
+    }
+    
+    public void Slower()
+    {
+        Debug.Log("Slower Player has been called");
+        StartCoroutine(SlowerCoronaCoroutine(_fasterPlayerDuration));
+    }
+
+    IEnumerator SlowerCoronaCoroutine(float duration)
+    {
+        speed = 4f;
+        yield return new WaitForSeconds(duration);
+        speed = 15f;
+    }
+    
+    public void InstantShield()
+    {
+        Instantiate(_shieldprefab, transform.position, Quaternion.identity, this.transform);
     }
     
 }

@@ -7,6 +7,7 @@ public class SurprisePowerUp : MonoBehaviour
 {
     [SerializeField] private Coroner _coroner;
     [SerializeField] private Player _player;
+    [SerializeField] private Shield _shield;
     [SerializeField] private float _surprisePowerUpSpeed = 3f;
     private float _randomInt;
     [FormerlySerializedAs("bling2")] public AudioClip goodSurprise;
@@ -64,7 +65,7 @@ public class SurprisePowerUp : MonoBehaviour
         else if (_randomInt <= 2 && _randomInt > 1)
         {
             Debug.Log("SurprisePowerUp Shield was chosen" + _randomInt);
-            //needs to be implemented in player so it can be called:  _player.Shield();
+             _player.InstantShield();
             AudioSource.PlayClipAtPoint(goodSurprise, transform.position);
             
         }
@@ -72,15 +73,17 @@ public class SurprisePowerUp : MonoBehaviour
         else if (_randomInt <= 3 && _randomInt > 2)
         {
             Debug.Log("SurprisePowerUp SlowCorona was chosen" + _randomInt);
-            AudioSource.PlayClipAtPoint(goodSurprise, transform.position);
-            _coroner.SlowerCorona();
+            AudioSource.PlayClipAtPoint(badSurprise, transform.position);
+            //_coroner.SlowerCorona();
+            _player.Slower();
         }
 
         else if (_randomInt <=4 && _randomInt > 3)
         {
             Debug.Log("SurprisePowerUp FasterCorona was chosen" + _randomInt);
             AudioSource.PlayClipAtPoint(badSurprise, transform.position);
-            _coroner.FasterCorona();
+            //_coroner.FasterCorona();
+            _player.Faster();
         }
 
         else

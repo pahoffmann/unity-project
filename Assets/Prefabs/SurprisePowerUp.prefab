@@ -113,6 +113,7 @@ MonoBehaviour:
   _coroner: {fileID: 1159344534901892396, guid: 7d21232d46bea2098972b7a9b89d21e3,
     type: 3}
   _player: {fileID: 0}
+  _shield: {fileID: 6604900155592328020, guid: d4405b4627c7b3f4cae93487abb54cbc, type: 3}
   _surprisePowerUpSpeed: 3
   goodSurprise: {fileID: 8300000, guid: 1694f60db77366640bec5504aa2d9b4a, type: 3}
   badSurprise: {fileID: 8300000, guid: ec652bee4c9e14b4699761f2bc4f3ecf, type: 3}
