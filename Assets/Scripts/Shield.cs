@@ -5,7 +5,8 @@ using UnityEngine;
 public class Shield : MonoBehaviour
 {
     [SerializeField] private GameObject _player;
-    
+
+    private float _shieldLifes = 3f;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,18 +18,19 @@ public class Shield : MonoBehaviour
     {
         
     }
-    /*public void InstantShield()
-    {
-        Instantiate(this,transform.position, Quaternion.identity);
-        this.transform.parent = _player.transform;
-    }*/
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Coroner"))
         {
-
             Destroy(other.gameObject);
-            Destroy(this.gameObject);
+            
+            _shieldLifes--;
+            if (_shieldLifes == 0f)
+            {
+                Destroy(this.gameObject);
+            }
+            
         }
     }
 }
