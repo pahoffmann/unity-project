@@ -28,6 +28,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private GameObject _heartPowerUp;
     [SerializeField] private GameObject _treasureChestPowerUp;
     [SerializeField] private GameObject _randomPowerUp;
+    [SerializeField] private GameObject _shotPowerUp;
 
     // UIManager shit
     [SerializeField] private UIManager _UIManager;
@@ -162,6 +163,10 @@ public class WaveManager : MonoBehaviour
                 break;
             case Constants.PowerUps.Random:
                 Instantiate(_randomPowerUp, new Vector3(0, Constants.Dimensions.BorderTop + 2, 0f), 
+                    Quaternion.identity, this.transform);
+                break;
+            case Constants.PowerUps.ShotUpgrade:
+                Instantiate(_shotPowerUp, new Vector3(0, Constants.Dimensions.BorderTop + 2, 0f), 
                     Quaternion.identity, this.transform);
                 break;
             default: //add more virus spawns
@@ -328,6 +333,12 @@ public class WaveManager : MonoBehaviour
                                     for (int i = 0; i < number; i++)
                                     {
                                         level.SpawnOrder.Enqueue(Constants.PowerUps.Random);
+                                    }
+                                    break;
+                                case Constants.PowerUps.ShotUpgrade:
+                                    for (int i = 0; i < number; i++)
+                                    {
+                                        level.SpawnOrder.Enqueue(Constants.PowerUps.ShotUpgrade);
                                     }
                                     break;
                                 case Constants.Bosses.Bat:
