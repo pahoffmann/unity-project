@@ -19,12 +19,18 @@ public class Highscores : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //check if highscorefile exists. if not, create one
+        if (!File.Exists(Application.streamingAssetsPath + "/" + Constants.highscoreFile))
+        {
+            var file = File.Create(Application.streamingAssetsPath + "/" + Constants.highscoreFile);
+            file.Close();
+        }
+        
         var lines = File.ReadLines(Application.streamingAssetsPath + "/" + Constants.highscoreFile);
         List<HighScore> highscoreList = new List<HighScore>();
         
         foreach (var line in lines)
         {
-            Debug.Log(line);
             var split = line.Split('-');
             var player = split[0];
             var score = split[1];

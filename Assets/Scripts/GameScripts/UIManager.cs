@@ -58,7 +58,7 @@ public class UIManager : MonoBehaviour
         // if the player entered a name, we save the score
         if (_inputText.text.Length > 0)
         {
-            File.AppendAllText(Application.streamingAssetsPath + "/" + Constants.highscoreFile,  Environment.NewLine + _inputText.text + "-" + _score);
+            File.AppendAllText(Application.streamingAssetsPath + "/" + Constants.highscoreFile,  _inputText.text + "-" + _score + Environment.NewLine);
         }
         SceneManager.LoadScene("Menu");
     }
