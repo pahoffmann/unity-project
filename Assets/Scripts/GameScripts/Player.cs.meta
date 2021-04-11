@@ -3,7 +3,12 @@ guid: 4f095133edb14a34b861ee67f8aa7355
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _vaccinePrefab: {instanceID: 0}
+  - _spawnManager: {instanceID: 0}
+  - _UVLightPrefab: {instanceID: 0}
+  - _UIManager: {instanceID: 0}
+  - notGood: {fileID: 8300000, guid: e37ddd9ac5ee90940a52c24e53db1ce3, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
