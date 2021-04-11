@@ -1666,6 +1666,7 @@ MonoBehaviour:
     type: 3}
   _useUVLight: 0
   _UIManager: {fileID: 285330842}
+  notGood: {fileID: 8300000, guid: e37ddd9ac5ee90940a52c24e53db1ce3, type: 3}
 --- !u!1 &1482540720
 GameObject:
   m_ObjectHideFlags: 0
@@ -2285,6 +2286,12 @@ MonoBehaviour:
     type: 3}
   _batPrefab: {fileID: 1625221395402176, guid: c9951ca0f61167b4593ffe21b0a089c8, type: 3}
   _uVLightPowerUp: {fileID: 1724212754760185611, guid: adc3e64e25735ed47ad39f7d8410c684,
+    type: 3}
+  _heartPowerUp: {fileID: 1547776420538905787, guid: fbfd1f7e908eae1438e52e1e5ff2399f,
+    type: 3}
+  _treasureChestPowerUp: {fileID: 7567588302445594836, guid: a29c10175f1bc484c9467cc7fc6713f5,
+    type: 3}
+  _randomPowerUp: {fileID: 2369684977539628950, guid: 5a221f1c14f497447b1021c35d1c9a3c,
     type: 3}
   _UIManager: {fileID: 285330842}
 --- !u!4 &1950526965
