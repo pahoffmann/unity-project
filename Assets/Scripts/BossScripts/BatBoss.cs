@@ -19,6 +19,7 @@ public class BatBoss : MonoBehaviour
     private float _randX = 0f;
     private float _randY = 0f;
     public int _lives { get; set; }
+    private int _score = 20;
     void Start()
     {
         transform.Rotate(new Vector3(30, 180, 0), Space.Self);
@@ -163,6 +164,16 @@ public class BatBoss : MonoBehaviour
             if (_lives == 0)
             {
                 Destroy(gameObject);
+                GameObject.FindObjectOfType<UIManager>().AddScore(_score);
+            }
+        }
+        else if (other.CompareTag(Constants.Tags.UVLight))
+        {
+            _lives -= 1;
+            if (_lives == 0)
+            {
+                Destroy(gameObject);
+                GameObject.FindObjectOfType<UIManager>().AddScore(_score);
             }
         }
     }

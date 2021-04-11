@@ -7,6 +7,8 @@ public class Corona484K : MonoBehaviour
 {
     // schnellere Virusvariante
     [SerializeField] private float _speed = 6f;
+
+    private int _score = 2;
     
     void Update()
     {
@@ -25,12 +27,15 @@ public class Corona484K : MonoBehaviour
             other.GetComponent<Player>().Damage();
             Destroy(this.gameObject);
         }
-        else if (other.CompareTag("Vaccine"))
+        else if (other.CompareTag(Constants.Tags.Vaccine))
         {
+            GameObject.FindObjectOfType<UIManager>().AddScore(_score);
+            Destroy(other.gameObject);
             Destroy(this.gameObject);
         }
-        else if (other.CompareTag("UVLight"))
+        else if (other.CompareTag(Constants.Tags.UVLight))
         {
+            GameObject.FindObjectOfType<UIManager>().AddScore(_score);
             Destroy(this.gameObject);
         }
     }

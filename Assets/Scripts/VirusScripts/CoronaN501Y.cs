@@ -14,6 +14,8 @@ public class CoronaN501Y : MonoBehaviour
     private float _incidentRate = 2f;
 
     private float _canInfect = -1f;
+
+    private int _score = 2;
     
     // Update is called once per frame
     void Update()
@@ -47,12 +49,15 @@ public class CoronaN501Y : MonoBehaviour
         }
         
         //but if the other one is vaccine
-        else if (other.CompareTag("Vaccine"))
+        else if (other.CompareTag(Constants.Tags.Vaccine))
         {
+            GameObject.FindObjectOfType<UIManager>().AddScore(_score);
+            Destroy(other.gameObject);
             Destroy(this.gameObject);
         }
-        else if (other.CompareTag("UVLight"))
+        else if (other.CompareTag(Constants.Tags.UVLight))
         {
+            GameObject.FindObjectOfType<UIManager>().AddScore(_score);
             Destroy(this.gameObject);
         }
     }

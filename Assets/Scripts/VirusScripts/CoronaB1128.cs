@@ -9,6 +9,8 @@ public class CoronaB1128 : MonoBehaviour
     [SerializeField] private int _vlives = 3;
     [SerializeField] private Vector3 scaleChange;
 
+    private int _score = 3;
+
     void Update()
     {
         transform.Translate(Vector3.down * _speed * Time.deltaTime);
@@ -27,6 +29,9 @@ public class CoronaB1128 : MonoBehaviour
         if (_vlives == 0)
         {
             Destroy(this.gameObject);
+            //but if the other one is vaccine
+            
+            GameObject.FindObjectOfType<UIManager>().AddScore(_score);
         }
     }
     
