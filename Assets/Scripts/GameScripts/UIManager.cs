@@ -50,14 +50,9 @@ public class UIManager : MonoBehaviour
         //_gameOverText.text = "Game Over\nYour Score: " + _score;
     }
 
-    public void readName()
-    {
-        name = _inputText.text;
-        displayText.text = "Hello " + name;
-    }
-
     public void toMainMenu()
     {
+        name = _inputText.text;
         SceneManager.LoadScene("Menu");
     }
     
