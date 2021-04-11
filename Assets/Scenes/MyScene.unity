@@ -2293,6 +2293,8 @@ MonoBehaviour:
     type: 3}
   _randomPowerUp: {fileID: 2369684977539628950, guid: 5a221f1c14f497447b1021c35d1c9a3c,
     type: 3}
+  _shotPowerUp: {fileID: 1000010986879176, guid: 2de6241b62ff1644fb7f2909d30c937e,
+    type: 3}
   _UIManager: {fileID: 285330842}
 --- !u!4 &1950526965
 Transform:

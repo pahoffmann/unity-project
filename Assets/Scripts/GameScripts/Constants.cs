@@ -35,6 +35,7 @@ public static class Constants
         public const String Heart = "Heart";
         public const String TreasureChest = "TC";
         public const String Random = "Random";
+        public const String ShotUpgrade = "Shot";
     }
 
     public readonly struct Bosses

@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     private MaterialPropertyBlock _mpb;
     private Color _orange = new Color(1f, 0.5f, 0f);
     private Color _red = new Color(1f, 0f, 0f);
+    private int shootPhase = 0;
 
     // vaccine shit
     [SerializeField] private GameObject _vaccinePrefab;
@@ -137,8 +138,46 @@ public class Player : MonoBehaviour
             }
             else
             {
-                Instantiate(_vaccinePrefab, transform.position + new Vector3(0f, 0.7f, 0f),
-                    Quaternion.identity);
+                switch (shootPhase)
+                {
+                    case 0:
+                        Instantiate(_vaccinePrefab, transform.position + new Vector3(0f, 0.7f, 0f),
+                            Quaternion.identity);
+                        break;
+                    case 1:
+                        // shoot two vaccines
+                        Instantiate(_vaccinePrefab, transform.position + new Vector3(-0.2f, 0.7f, 0f),
+                            Quaternion.identity);
+                        Instantiate(_vaccinePrefab, transform.position + new Vector3(0.2f, 0.7f, 0f),
+                            Quaternion.identity);
+                        
+                        break;
+                    case 2:
+                        // shoot 3 vaccines at an angle
+                        Instantiate(_vaccinePrefab, transform.position + new Vector3(0f, 0.7f, 0f),
+                            Quaternion.identity);
+                        Instantiate(_vaccinePrefab, transform.position + new Vector3(0f, 0.7f, 0f),
+                            new Quaternion(0, 0f, -0.2f, 1));
+                        Instantiate(_vaccinePrefab, transform.position + new Vector3(0f, 0.7f, 0f),
+                            new Quaternion(0, 0f, 0.2f, 1));
+                        break;
+                    case 3:
+                        Instantiate(_vaccinePrefab, transform.position + new Vector3(0f, 0.7f, 0f),
+                            new Quaternion(0, 0f, -0.2f, 1));
+                        Instantiate(_vaccinePrefab, transform.position + new Vector3(0f, 0.7f, 0f),
+                            new Quaternion(0, 0f, -0.1f, 1));
+                        Instantiate(_vaccinePrefab, transform.position + new Vector3(0f, 0.7f, 0f),
+                            new Quaternion(0, 0f, 0.1f, 1));
+                        Instantiate(_vaccinePrefab, transform.position + new Vector3(0f, 0.7f, 0f),
+                            new Quaternion(0, 0f, 0.2f, 1));
+                        Instantiate(_vaccinePrefab, transform.position + new Vector3(0f, 0.7f, 0f),
+                            Quaternion.identity);
+                        break;
+                    default:
+                        Instantiate(_vaccinePrefab, transform.position + new Vector3(0f, 0.7f, 0f),
+                            Quaternion.identity);
+                        break;
+                }
             }
         }
     }
@@ -209,6 +248,16 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(duration);
         _useUVLight = false;
         _vaccinationRate = 0.3f;
+    }
+
+    public void UpgradeShot()
+    {
+        if (shootPhase <= 2)
+        {
+            _vaccinationRate -= 0.05f;
+            shootPhase++;
+        }
+            
     }
     
 }
