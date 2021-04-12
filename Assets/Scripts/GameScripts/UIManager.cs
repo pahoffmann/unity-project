@@ -15,7 +15,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Text _scoreText;
     [SerializeField] private Text _livesText;
     [SerializeField] private TextMeshProUGUI _gameOverText;
-    [SerializeField] private TextMeshProUGUI _inputText;
+    [SerializeField] private TextMeshProUGUI _inputTextGameOver;
+    [SerializeField] private TextMeshProUGUI _inputTextWin;
     [SerializeField] private TextMeshProUGUI _gameOverScore;
     [SerializeField] private TextMeshProUGUI _winnerScore;
     [SerializeField] private AudioClip _gameWinnerAudio;
@@ -71,10 +72,15 @@ public class UIManager : MonoBehaviour
     public void toMainMenu()
     {
         // if the player entered a name, we save the score
-        if (_inputText.text.Length > 0)
+        if (_inputTextGameOver.text.Replace("\u200B", "").Length > 0)
         {
-            File.AppendAllText(Application.streamingAssetsPath + "/" + Constants.highscoreFile,  _inputText.text + "-" + _score + Environment.NewLine);
+            File.AppendAllText(Application.streamingAssetsPath + "/" + Constants.highscoreFile,  _inputTextGameOver.text.Trim().Replace("\u200B", "") + "-" + _score + Environment.NewLine);
         }
+        else if (_inputTextWin.text.Replace("\u200B", "").Length > 0)
+        {
+            File.AppendAllText(Application.streamingAssetsPath + "/" + Constants.highscoreFile,  _inputTextWin.text.Trim().Replace("\u200B", "") + "-" + _score + Environment.NewLine);
+        }
+        
         SceneManager.LoadScene("Menu");
     }
 }

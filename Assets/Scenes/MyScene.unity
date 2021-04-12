@@ -653,7 +653,8 @@ MonoBehaviour:
   _scoreText: {fileID: 1814552915}
   _livesText: {fileID: 840922386}
   _gameOverText: {fileID: 1600940900}
-  _inputText: {fileID: 459982515}
+  _inputTextGameOver: {fileID: 459982515}
+  _inputTextWin: {fileID: 1906810404}
   _gameOverScore: {fileID: 1013814564}
   _winnerScore: {fileID: 1801882452}
   _gameWinnerAudio: {fileID: 8300000, guid: dfb7c914dbe1aa3488b1f474dcf49c43, type: 3}
