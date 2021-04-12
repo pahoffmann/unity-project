@@ -9,6 +9,8 @@ public class Droppable : MonoBehaviour
     private float accY_;
     private float baseVelX;
     private float baseVelY = 6;
+
+    [SerializeField] private AudioClip _sound;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +37,7 @@ public class Droppable : MonoBehaviour
         if (other.CompareTag(Constants.Tags.Player))
         {
             GameObject.FindObjectOfType<UIManager>().AddScore(10);
+            AudioSource.PlayClipAtPoint(_sound, new Vector3(0,0,0));
             Destroy(gameObject);
         }
     }
