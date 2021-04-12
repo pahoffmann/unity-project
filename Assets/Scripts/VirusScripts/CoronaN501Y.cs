@@ -9,6 +9,9 @@ public class CoronaN501Y : MonoBehaviour
 
     [SerializeField] 
     private GameObject _devilvaccineprefab;
+    
+    [SerializeField] private GameObject _coin;
+    private float _coinDropProbabilty = 0.15f;
 
     [SerializeField] 
     private float _incidentRate = 2f;
@@ -59,6 +62,17 @@ public class CoronaN501Y : MonoBehaviour
         {
             GameObject.FindObjectOfType<UIManager>().AddScore(_score);
             Destroy(this.gameObject);
+        }
+    }
+    
+    private void OnDestroy()
+    {
+        // spawn coin with probabilty
+        int rand = Random.Range(0, 9);
+
+        if (rand < _coinDropProbabilty * 10)
+        {
+            Instantiate(_coin, transform.position, Quaternion.Euler(90, 180, 0), transform.parent);
         }
     }
 }

@@ -16,6 +16,7 @@ MonoBehaviour:
   _weevilvaccineprefab: {fileID: 8459165970176171871, guid: 15273a971aee256409cd1dcb7b88d0cc,
     type: 3}
   _incidentRate: 2
+  _coin: {fileID: 2027788599216953554, guid: 08502b94e7b44c243bd422e45933a2a9, type: 3}
 --- !u!1001 &4837874270758367959
 PrefabInstance:
   m_ObjectHideFlags: 0

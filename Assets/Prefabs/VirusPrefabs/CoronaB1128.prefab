@@ -15,6 +15,7 @@ MonoBehaviour:
   _speed: 2
   _vlives: 3
   scaleChange: {x: 0, y: 0, z: 0}
+  _coin: {fileID: 2027788599216953554, guid: 08502b94e7b44c243bd422e45933a2a9, type: 3}
 --- !u!1001 &9102866367189071910
 PrefabInstance:
   m_ObjectHideFlags: 0

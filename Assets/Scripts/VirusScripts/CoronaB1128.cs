@@ -8,6 +8,8 @@ public class CoronaB1128 : MonoBehaviour
     [SerializeField] private float _speed = 2f;
     [SerializeField] private int _vlives = 3;
     [SerializeField] private Vector3 scaleChange;
+    [SerializeField] private GameObject _coin;
+    private float _coinDropProbabilty = 0.2f;
 
     private int _score = 3;
 
@@ -52,6 +54,17 @@ public class CoronaB1128 : MonoBehaviour
         {
             Damage();
             transform.localScale += scaleChange;
+        }
+    }
+    
+    private void OnDestroy()
+    {
+        // spawn coin with probabilty
+        int rand = Random.Range(0, 9);
+
+        if (rand < _coinDropProbabilty * 10)
+        {
+            Instantiate(_coin, transform.position, Quaternion.Euler(90, 180, 0), transform.parent);
         }
     }
 }

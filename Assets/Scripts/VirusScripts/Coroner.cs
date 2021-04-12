@@ -9,6 +9,8 @@ public class Coroner : MonoBehaviour
     
     [SerializeField] private float _coronaSpeed = 3f;
     [SerializeField] private float _b117DirectionalVariance = 30f;
+    [SerializeField] private GameObject _coin;
+    private float _coinDropProbabilty = 0.1f;
 
     // Start is called before the first frame update
     void Start()
@@ -69,10 +71,22 @@ public class Coroner : MonoBehaviour
         {
             GameObject.FindObjectOfType<UIManager>().AddScore(score);
             Destroy(this.gameObject);
-        } else if (other.CompareTag(Constants.Tags.Player))
+        } 
+        else if (other.CompareTag(Constants.Tags.Player))
         {
             other.GetComponent<Player>().Damage();
             Destroy(this.gameObject);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        // spawn coin with probabilty
+        int rand = Random.Range(0, 9);
+
+        if (rand < _coinDropProbabilty * 10)
+        {
+            Instantiate(_coin, transform.position, Quaternion.Euler(90, 180, 0), transform.parent);
         }
     }
 }

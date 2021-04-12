@@ -2,5 +2,5 @@ num:2
 type:normal
 msg1:Here we go again..
 tbs:1.5
-prefabs:C0-15
+prefabs:C0-1
 msg2:At least it doesnt mutate..

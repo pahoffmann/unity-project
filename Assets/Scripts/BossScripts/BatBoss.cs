@@ -8,6 +8,7 @@ public class BatBoss : MonoBehaviour
 {
     [SerializeField]
     private GameObject _baseShot;
+    [SerializeField] private GameObject _coin;
     
     
     private bool _inPosition = false;
@@ -163,6 +164,7 @@ public class BatBoss : MonoBehaviour
             _lives -= 1;
             if (_lives == 0)
             {
+                StartCoroutine(SpawnCoin());
                 Destroy(gameObject);
                 GameObject.FindObjectOfType<UIManager>().AddScore(_score);
             }
@@ -176,5 +178,21 @@ public class BatBoss : MonoBehaviour
                 GameObject.FindObjectOfType<UIManager>().AddScore(_score);
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        
+        
+    }
+    
+    IEnumerator SpawnCoin()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            Instantiate(_coin, transform.position, Quaternion.Euler(90, 180, 0), transform.parent);
+            yield return new WaitForSeconds(0.3f);
+        }
+        
     }
 }

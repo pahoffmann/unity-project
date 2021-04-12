@@ -2,5 +2,5 @@ num:3
 type:normal
 msg1:Here comes the mutants..
 tbs:1.5
-prefabs:C0-5;C1-5
+prefabs:C0-1;C1-1
 msg2:Good job, first wave is done m8
