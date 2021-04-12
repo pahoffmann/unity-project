@@ -46,7 +46,7 @@ public class WaveManager : MonoBehaviour
     void Start()
     {
         ReadLevelFiles();
-
+        _UIManager.setLevel(_currentLevel);
         StartCoroutine(WaveCoroutine(_currentLevel));
     }
 
@@ -79,6 +79,7 @@ public class WaveManager : MonoBehaviour
             {
                 // increase current level and start next level
                 _currentLevel++;
+                _UIManager.setLevel(_currentLevel);
                 StartCoroutine(WaveCoroutine(_currentLevel));
             }
         }
@@ -94,6 +95,9 @@ public class WaveManager : MonoBehaviour
         // TODO: display level start message
 
         int levelIndex = curLevel - 1;
+        
+        _UIManager.setLevelMessage(levels[levelIndex].StartupDescription, 5);
+        yield return new WaitForSeconds(5);
 
         if (levels[levelIndex].Type == Constants.LevelTypes.Boss)
         {
