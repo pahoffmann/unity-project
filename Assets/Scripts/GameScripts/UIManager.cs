@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _gameOverText;
     [SerializeField] private TextMeshProUGUI _inputText;
     [SerializeField] private TextMeshProUGUI _gameOverScore;
+    [SerializeField] private GameObject _musicPlayer;
     public GameObject gameOverScreen;
     public GameObject gameUI;
     
@@ -75,6 +76,11 @@ public class UIManager : MonoBehaviour
         StartCoroutine(LevelMessageCoroutine(message, duration));
     }
 
+    public void setMusic(bool musicActive)
+    {
+        _musicPlayer.SetActive(false);
+    }
+    
     IEnumerator LevelMessageCoroutine(String message, int duration)
     {
         yield return new WaitForSeconds(1);
