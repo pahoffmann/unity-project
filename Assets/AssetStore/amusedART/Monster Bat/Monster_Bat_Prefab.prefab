@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 1722906596478885281}
   m_Layer: 0
   m_Name: Monster_Bat_Prefab
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

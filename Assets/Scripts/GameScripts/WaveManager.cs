@@ -66,7 +66,7 @@ public class WaveManager : MonoBehaviour
             //SceneManager.LoadScene("Menu");
         }
         // all virusses destroyed
-        if (transform.childCount == 0 && _doneSpawning)
+        else if (transform.childCount == 0 && _doneSpawning)
         {
             // TODO: display lvl done message
             

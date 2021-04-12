@@ -7,21 +7,12 @@ public class Shield : MonoBehaviour
     [SerializeField] private GameObject _player;
 
     private float _shieldLifes = 3f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Coroner"))
+        if (other.CompareTag("Coroner") || other.CompareTag("devilvaccine") ||
+            other.CompareTag("evilvaccine") || other.CompareTag("weevilvaccine") ||
+            other.CompareTag("Boss") || other.CompareTag("FriendlySpaceship"))
         {
             Destroy(other.gameObject);
             
@@ -30,7 +21,6 @@ public class Shield : MonoBehaviour
             {
                 Destroy(this.gameObject);
             }
-            
         }
     }
 }

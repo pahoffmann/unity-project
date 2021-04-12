@@ -1,6 +1,6 @@
 num:3
 type:normal
-msg1:Here comes the mutants..
+msg1:Here comes the BOSS
 tbs:1.5
-prefabs:C0-1;C1-1
+prefabs:Bat-1
 msg2:Good job, first wave is done m8

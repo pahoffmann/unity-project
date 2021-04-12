@@ -1,6 +1,0 @@
-num:4
-type:normal
-msg1:Junge alde
-tbs:1.0
-prefabs:C1-1;C0-1;C1-1
-msg2:Bockwurst
