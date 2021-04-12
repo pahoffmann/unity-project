@@ -12,13 +12,16 @@ public class UIManager : MonoBehaviour
 {
     
     private int _score = 0;
-    [SerializeField] private Text _scoreText;
-    [SerializeField] private Text _livesText;
+    [SerializeField] private TextMeshProUGUI _scoreText;
+    [SerializeField] private TextMeshProUGUI _livesText;
+    [SerializeField] private TextMeshProUGUI _levelText;
+    [SerializeField] private TextMeshProUGUI _levelMessageText;
     [SerializeField] private TextMeshProUGUI _gameOverText;
     [SerializeField] private TextMeshProUGUI _inputTextGameOver;
     [SerializeField] private TextMeshProUGUI _inputTextWin;
     [SerializeField] private TextMeshProUGUI _gameOverScore;
     [SerializeField] private TextMeshProUGUI _winnerScore;
+    [SerializeField] private GameObject _musicPlayer;
     [SerializeField] private AudioClip _gameWinnerAudio;
     public GameObject gameOverScreen;
     public GameObject gameUI;
@@ -50,6 +53,11 @@ public class UIManager : MonoBehaviour
         _livesText.text = "Lives: " + lives;
     }
 
+    public void setLevel(int level)
+    {
+        _levelText.text = "Level: " + level;
+    }
+    
     public void GameOver(bool gameOver)
     {
         gameUI.SetActive(false);
@@ -82,5 +90,24 @@ public class UIManager : MonoBehaviour
         }
         
         SceneManager.LoadScene("Menu");
+    }
+
+    public void setLevelMessage(String message, int duration)
+    {
+        StartCoroutine(LevelMessageCoroutine(message, duration));
+    }
+
+    public void setMusic(bool musicActive)
+    {
+        _musicPlayer.SetActive(false);
+    }
+    
+    IEnumerator LevelMessageCoroutine(String message, int duration)
+    {
+        yield return new WaitForSeconds(1);
+        _levelMessageText.text = message;
+        _levelMessageText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(duration - 1);
+        _levelMessageText.gameObject.SetActive(false);
     }
 }
