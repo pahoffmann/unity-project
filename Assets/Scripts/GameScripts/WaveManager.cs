@@ -73,7 +73,7 @@ public class WaveManager : MonoBehaviour
             //all levels done?
             if (_currentLevel == levels.Count)
             {
-                _UIManager.GameOver(true);
+                _UIManager.GameWinner(); // game is won
             }
             else
             {

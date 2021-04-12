@@ -17,14 +17,19 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _gameOverText;
     [SerializeField] private TextMeshProUGUI _inputText;
     [SerializeField] private TextMeshProUGUI _gameOverScore;
+    [SerializeField] private TextMeshProUGUI _winnerScore;
+    [SerializeField] private AudioClip _gameWinnerAudio;
     public GameObject gameOverScreen;
     public GameObject gameUI;
+    public GameObject youWin;
+    
     
     // Start is called before the first frame update
     void Start()
     {
         _scoreText.text = "Score: " + _score;
         gameOverScreen.SetActive(false);
+        youWin.SetActive(false);
     }
 
     // Update is called once per frame
@@ -47,10 +52,20 @@ public class UIManager : MonoBehaviour
     public void GameOver(bool gameOver)
     {
         gameUI.SetActive(false);
+        youWin.SetActive(false);
         gameOverScreen.SetActive(true);
         _gameOverScore.text = "Score: " + _score;
         //_gameOverText.enabled = gameOver;
         //_gameOverText.text = "Game Over\nYour Score: " + _score;
+    }
+
+    public void GameWinner()
+    {
+        gameUI.SetActive(false);
+        gameOverScreen.SetActive(false);
+        youWin.SetActive(true);
+        _winnerScore.text = "Score: " + _score;
+        AudioSource.PlayClipAtPoint(_gameWinnerAudio, new Vector3(0,0,0));
     }
 
     public void toMainMenu()
