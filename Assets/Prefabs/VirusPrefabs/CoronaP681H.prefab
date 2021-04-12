@@ -37,7 +37,7 @@ PrefabInstance:
     - target: {fileID: 4452067694469217574, guid: 087b4b7cc0640234fb8708ff84d6c589,
         type: 3}
       propertyPath: m_TagString
-      value: CoronaP681H
+      value: Coroner
       objectReference: {fileID: 0}
     - target: {fileID: 5086481752575640197, guid: 087b4b7cc0640234fb8708ff84d6c589,
         type: 3}

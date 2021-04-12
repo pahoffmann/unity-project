@@ -9,6 +9,16 @@ TagManager:
   - UVLight
   - Powerup
   - Shield
+  - Corona484K
+  - CoronaB1128
+  - CoronaN501Y
+  - CoronaY144
+  - CoronaP681H
+  - FriendlySpaceship
+  - devilvaccine
+  - weevilvaccine
+  - evilvaccine
+  - Boss
   layers:
   - Default
   - TransparentFX

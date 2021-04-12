@@ -1,6 +1,6 @@
 num:1
 type:normal
-msg1:It will go away soon...
-tbs:3.0
-prefabs:C0-1
+msg1:Welcome to our demo... enjoy...
+tbs:1.0
+prefabs:C0-1;C1-2;C0-5;Shot-1;C1-5
 msg2:Good job, first wave is done m8
