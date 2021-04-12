@@ -605,6 +605,7 @@ MonoBehaviour:
   _gameOverText: {fileID: 1600940900}
   _inputText: {fileID: 459982515}
   _gameOverScore: {fileID: 1013814564}
+  _musicPlayer: {fileID: 686144671}
   gameOverScreen: {fileID: 209920350}
   gameUI: {fileID: 546824976}
 --- !u!1 &398865585

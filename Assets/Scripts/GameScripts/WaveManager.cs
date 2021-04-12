@@ -58,6 +58,7 @@ public class WaveManager : MonoBehaviour
         if (_gameOver)
         {
             _UIManager.GameOver(true);
+            _UIManager.setMusic(false);
              Destroy(gameObject);
              // wait or do something else, you know, like hitting sebastian or smth
             
@@ -74,6 +75,7 @@ public class WaveManager : MonoBehaviour
             if (_currentLevel == levels.Count)
             {
                 _UIManager.GameOver(true);
+                _UIManager.setMusic(false);
             }
             else
             {
