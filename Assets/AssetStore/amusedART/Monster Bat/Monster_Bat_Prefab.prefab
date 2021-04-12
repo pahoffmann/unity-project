@@ -214,6 +214,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _baseShot: {fileID: 4700739795438426525, guid: 73ef51965579aa8428874ce58efee026,
     type: 3}
+  _coin: {fileID: 2027788599216953554, guid: 08502b94e7b44c243bd422e45933a2a9, type: 3}
+  _maxClones: 8
+  _lives: 100
+  _score: 20
 --- !u!54 &7492384493652139358
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -238,7 +242,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625221395402176}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.44189948

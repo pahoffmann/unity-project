@@ -21,6 +21,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private GameObject _y144Prefab;
     [SerializeField] private GameObject _friendlyShipPrefab;
     [SerializeField] private GameObject _batPrefab;
+    [SerializeField] private GameObject _lambdaPrefab;
     //todo: more prefabs?
     
     
@@ -74,7 +75,7 @@ public class WaveManager : MonoBehaviour
             //all levels done?
             if (_currentLevel == levels.Count)
             {
-                _UIManager.GameOver(true);
+                _UIManager.GameWinner(); // game is won
                 _UIManager.setMusic(false);
             }
             else
@@ -162,7 +163,10 @@ public class WaveManager : MonoBehaviour
             case Constants.Bosses.Bat:
                 GameObject bat = Instantiate(_batPrefab, new Vector3(0, Constants.Dimensions.BorderTop + 2, 0f), 
                     Quaternion.identity, this.transform) as GameObject;
-                bat.GetComponent<BatBoss>()._lives = 10; // this should possibly be defined somewhere else
+                break;
+            case Constants.Bosses.Lambda:
+                GameObject lambda = Instantiate(_lambdaPrefab, new Vector3(0, Constants.Dimensions.BorderTop + 5, 0f), 
+                    Quaternion.identity, this.transform) as GameObject;
                 break;
             case Constants.PowerUps.Heart:
                 Instantiate(_heartPowerUp, new Vector3(0, Constants.Dimensions.BorderTop + 2, 0f), 
@@ -355,6 +359,9 @@ public class WaveManager : MonoBehaviour
                                     break;
                                 case Constants.Bosses.Bat:
                                     level.SpawnOrder.Enqueue(Constants.Bosses.Bat);
+                                    break;
+                                case Constants.Bosses.Lambda:
+                                    level.SpawnOrder.Enqueue(Constants.Bosses.Lambda);
                                     break;
                                 default:
                                     break;

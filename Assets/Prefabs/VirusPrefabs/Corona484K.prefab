@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 7
+  _coin: {fileID: 2027788599216953554, guid: 08502b94e7b44c243bd422e45933a2a9, type: 3}
 --- !u!1001 &1245598086852164683
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ MonoBehaviour:
   _speed: 3
   _evilvaccineprefab: {fileID: 4700739795438426525, guid: 73ef51965579aa8428874ce58efee026,
     type: 3}
+  _coin: {fileID: 2027788599216953554, guid: 08502b94e7b44c243bd422e45933a2a9, type: 3}
   _incidentRate: 2
 --- !u!1001 &889410516901074405
 PrefabInstance:

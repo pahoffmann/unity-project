@@ -127,3 +127,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _coronaSpeed: 3
   _b117DirectionalVariance: 30
+  _coin: {fileID: 2027788599216953554, guid: 08502b94e7b44c243bd422e45933a2a9, type: 3}

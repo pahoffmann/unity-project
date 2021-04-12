@@ -9,11 +9,16 @@ public class CoronaN501Y : MonoBehaviour
 
     [SerializeField] 
     private GameObject _devilvaccineprefab;
+    
+    [SerializeField] private GameObject _coin;
+    private float _coinDropProbabilty = 0.15f;
 
     [SerializeField] 
     private float _incidentRate = 2f;
 
     private float _canInfect = -1f;
+
+    private int _score = 2;
     
     // Update is called once per frame
     void Update()
@@ -47,13 +52,27 @@ public class CoronaN501Y : MonoBehaviour
         }
         
         //but if the other one is vaccine
-        else if (other.CompareTag("Vaccine"))
+        else if (other.CompareTag(Constants.Tags.Vaccine))
         {
+            GameObject.FindObjectOfType<UIManager>().AddScore(_score);
+            Destroy(other.gameObject);
             Destroy(this.gameObject);
         }
-        else if (other.CompareTag("UVLight"))
+        else if (other.CompareTag(Constants.Tags.UVLight))
         {
+            GameObject.FindObjectOfType<UIManager>().AddScore(_score);
             Destroy(this.gameObject);
+        }
+    }
+    
+    private void OnDestroy()
+    {
+        // spawn coin with probabilty
+        int rand = Random.Range(0, 9);
+
+        if (rand < _coinDropProbabilty * 10)
+        {
+            Instantiate(_coin, transform.position, Quaternion.Euler(90, 180, 0), transform.parent);
         }
     }
 }
