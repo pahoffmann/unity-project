@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class BatBoss : MonoBehaviour
+public class LambdaBoss : MonoBehaviour
 {
     [SerializeField] private GameObject _baseShot;
     [SerializeField] private GameObject _coin;
@@ -18,7 +18,7 @@ public class BatBoss : MonoBehaviour
     private float _timeBetweenRands = 2f;
     private float _randX = 0f;
     private float _randY = 0f;
-    public int _lives = 100;
+    public int _lives = 200;
     [SerializeField] private int _score = 20;
     void Start()
     {
@@ -31,7 +31,7 @@ public class BatBoss : MonoBehaviour
     {
 
         // in the beginning, move down
-        if (transform.position.y > Constants.Dimensions.BorderTop - 2 && !_inPosition)
+        if (transform.position.y > Constants.Dimensions.BorderTop && !_inPosition)
         {
             transform.Translate(0,-1 * Time.deltaTime,0, Space.World);
         }
@@ -90,7 +90,7 @@ public class BatBoss : MonoBehaviour
 
     void CheckBoundaries()
     {
-        float floorOffset = 4;
+        float floorOffset = 5;
         
         float ceiling   = Constants.Dimensions.BorderTop, 
             floor     = Constants.Dimensions.BorderBottom,
@@ -142,7 +142,7 @@ public class BatBoss : MonoBehaviour
                     new Vector3(Random.Range(Constants.Dimensions.BorderLeft,Constants.Dimensions.BorderRight), transform.position.y, 0), 
                     Quaternion.identity) 
                     as GameObject;
-                clone.GetComponent<BatBoss>()._lives = 1;
+                clone.GetComponent<LambdaBoss>()._lives = 1;
                 //TODO: scaling only for clones of the original
                 clone.transform.localScale = new Vector3(clone.transform.localScale.x * 0.5f, clone.transform.localScale.y * 0.5f, clone.transform.localScale.z * 0.5f);
                 clone.transform.SetParent(transform.parent);

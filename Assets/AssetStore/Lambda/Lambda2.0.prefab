@@ -825,9 +825,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5343932367102289868}
-  - component: {fileID: 7994548280228483971}
   - component: {fileID: 2079696216838326032}
   - component: {fileID: 4081226895437316647}
+  - component: {fileID: 221113024450213782}
   m_Layer: 0
   m_Name: Lambda2.0
   m_TagString: Untagged
@@ -854,24 +854,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7994548280228483971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4711511229781802358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a49888841486e564c88079a7ad881857, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _baseShot: {fileID: 5357109035307064740, guid: 42ed957c024535c4eaa038e996d20366,
-    type: 3}
-  _coin: {fileID: 2027788599216953554, guid: 08502b94e7b44c243bd422e45933a2a9, type: 3}
-  _maxClones: 8
-  _lives: 200
-  _score: 20
 --- !u!136 &2079696216838326032
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -902,6 +884,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &221113024450213782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4711511229781802358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44bcfaf10c6469c95bbd0866a679589, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _baseShot: {fileID: 5357109035307064740, guid: 42ed957c024535c4eaa038e996d20366,
+    type: 3}
+  _coin: {fileID: 2027788599216953554, guid: 08502b94e7b44c243bd422e45933a2a9, type: 3}
+  _maxClones: 6
+  _lives: 200
+  _score: 20
 --- !u!1 &6767808355960291608
 GameObject:
   m_ObjectHideFlags: 0

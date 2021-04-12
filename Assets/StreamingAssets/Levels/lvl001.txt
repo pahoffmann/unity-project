@@ -1,6 +1,6 @@
 num:1
 type:normal
 msg1:It will go away soon...
-tbs:1.0
-prefabs:Lambda-1
+tbs:3.0
+prefabs:Lambda-1;Bat-2; Lamba-2
 msg2:Good job, first wave is done m8

@@ -159,7 +159,7 @@ public class WaveManager : MonoBehaviour
                     Quaternion.identity, this.transform) as GameObject;
                 break;
             case Constants.Bosses.Lambda:
-                GameObject lambda = Instantiate(_lambdaPrefab, new Vector3(0, Constants.Dimensions.BorderTop + 2, 0f), 
+                GameObject lambda = Instantiate(_lambdaPrefab, new Vector3(0, Constants.Dimensions.BorderTop + 5, 0f), 
                     Quaternion.identity, this.transform) as GameObject;
                 break;
             case Constants.PowerUps.Heart:
