@@ -1,6 +1,6 @@
-num:3
+num:1
 type:normal
 msg1:It will go away soon...
-tbs:0.3
-prefabs:C1-5
+tbs:2.0
+prefabs:C0-10
 msg2:Good job, first wave is done m8
