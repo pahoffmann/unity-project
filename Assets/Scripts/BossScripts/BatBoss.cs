@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class BatBoss : MonoBehaviour
@@ -19,7 +20,11 @@ public class BatBoss : MonoBehaviour
     private float _randX = 0f;
     private float _randY = 0f;
     public int _lives = 100;
+    private float _health = 100f;
+    private float _maxHealth = 100f;
+    [SerializeField] private GameObject _healthbar;
     [SerializeField] private int _score = 20;
+    
     void Start()
     {
         transform.Rotate(new Vector3(30, 180, 0), Space.Self);
@@ -171,6 +176,9 @@ public class BatBoss : MonoBehaviour
     private void Damage()
     {
         _lives -= 1;
+        _health -= 1f;
+        _healthbar.GetComponent<Slider>().value = _health / _maxHealth;
+        
         if (_lives == 0)
         {
             StartCoroutine(SpawnCoin());
