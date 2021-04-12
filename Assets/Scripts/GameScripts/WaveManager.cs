@@ -178,7 +178,7 @@ public class WaveManager : MonoBehaviour
                 break;
             case Constants.PowerUps.Random:
                 Instantiate(_randomPowerUp, new Vector3(0, Constants.Dimensions.BorderTop + 2, 0f), 
-                    Quaternion.identity, this.transform);
+                    Quaternion.Euler(0,90,0), this.transform);
                 break;
             case Constants.PowerUps.ShotUpgrade:
                 Instantiate(_shotPowerUp, new Vector3(0, Constants.Dimensions.BorderTop + 2, 0f), 
