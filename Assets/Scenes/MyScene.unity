@@ -2554,8 +2554,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
+  _fasterPlayerDuration: 7
   _lives: 3
   _vaccinePrefab: {fileID: 6980919086455902853, guid: cc735fcefaa11c63391e40cdceb068ac,
+    type: 3}
+  _sideVaccinePrefab: {fileID: 7552467640246975384, guid: 62d141a3a1ce63840830ddfd7a026f4d,
     type: 3}
   _vaccinationRate: 0.3
   _waveManager: {fileID: 1950526964}
@@ -2564,6 +2567,8 @@ MonoBehaviour:
   _useUVLight: 0
   _UIManager: {fileID: 285330842}
   notGood: {fileID: 8300000, guid: e37ddd9ac5ee90940a52c24e53db1ce3, type: 3}
+  _shieldprefab: {fileID: 5371668893507346945, guid: d4405b4627c7b3f4cae93487abb54cbc,
+    type: 3}
 --- !u!1 &1482540720
 GameObject:
   m_ObjectHideFlags: 0

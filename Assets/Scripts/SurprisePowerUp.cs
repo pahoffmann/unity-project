@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class SurprisePowerUp : MonoBehaviour
 {
-    private float _surprisePowerUpSpeed = 3f;
-
+    [SerializeField] private Coroner _coroner;
+    [SerializeField] private Shield _shield;
+    [SerializeField] private float _surprisePowerUpSpeed = 3f;
     private float _randomInt;
-    
+    [FormerlySerializedAs("bling2")] public AudioClip goodSurprise;
+    public AudioClip badSurprise;
 
-    public AudioClip bling2;
+    
     
     // Start is called before the first frame update
     void Start()
@@ -39,8 +42,6 @@ public class SurprisePowerUp : MonoBehaviour
         // collision handling
         if (other.CompareTag("Player"))
         {
-            Debug.Log("bling should be played");
-            AudioSource.PlayClipAtPoint(bling2, transform.position);
             SurpriseSurprise();
             //Debug.Log("surprise hit player");
             Destroy(this.gameObject);
@@ -55,25 +56,33 @@ public class SurprisePowerUp : MonoBehaviour
 
         if (_randomInt <= 1)
         {
-            Debug.Log("SurprisePowerUp Nr1 was chosen" + _randomInt);
-            //needs to be implemented in player so it can be called:  _player.ActivateSideShoots();
-            
+            Debug.Log("SurprisePowerUp SideShoots was chosen" + _randomInt);
+            GameObject.FindObjectOfType<Player>().ActivateSideShoots(5f);
+            AudioSource.PlayClipAtPoint(goodSurprise, transform.position);
         }
 
         else if (_randomInt <= 2 && _randomInt > 1)
         {
-            Debug.Log("SurprisePowerUp Nr2 was chosen" + _randomInt);
-            //needs to be implemented in player so it can be called:  _player.NoVaccine();
+            Debug.Log("SurprisePowerUp Shield was chosen" + _randomInt);
+            GameObject.FindObjectOfType<Player>().InstantShield();
+            AudioSource.PlayClipAtPoint(goodSurprise, transform.position);
+            
         }
 
         else if (_randomInt <= 3 && _randomInt > 2)
         {
-            Debug.Log("SurprisePowerUp Nr3 was chosen" + _randomInt);
+            Debug.Log("SurprisePowerUp SlowCorona was chosen" + _randomInt);
+            AudioSource.PlayClipAtPoint(badSurprise, transform.position);
+            //_coroner.SlowerCorona();
+            GameObject.FindObjectOfType<Player>().Slower();
         }
 
         else if (_randomInt <=4 && _randomInt > 3)
         {
-            Debug.Log("SurprisePowerUp Nr4 was chosen" + _randomInt);
+            Debug.Log("SurprisePowerUp FasterCorona was chosen" + _randomInt);
+            AudioSource.PlayClipAtPoint(badSurprise, transform.position);
+            //_coroner.FasterCorona();
+            GameObject.FindObjectOfType<Player>().Faster();
         }
 
         else

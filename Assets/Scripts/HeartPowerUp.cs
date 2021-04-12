@@ -19,7 +19,7 @@ public class HeartPowerUp : MonoBehaviour
         transform.Translate(0f, -_heartPowerUpSpeed * Time.deltaTime, 0f, Space.World);
         if (transform.position.y < -6f)
         {
-            Debug.Log("Bottom boundary has been called");
+            //Debug.Log("Bottom boundary has been called");
             Destroy(this.gameObject);
         }
     }
@@ -30,9 +30,9 @@ public class HeartPowerUp : MonoBehaviour
         // collision handling
         if (other.CompareTag("Player"))
         {
-            Debug.Log("nicesound should be played");
+            //Debug.Log("nicesound should be played");
             AudioSource.PlayClipAtPoint(nicesound, transform.position);
-            Debug.Log("heart hit player");
+            //Debug.Log("heart hit player");
             
             //calls the player function to add a life
             other.GetComponent<Player>().OneMoreLife();

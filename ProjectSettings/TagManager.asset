@@ -8,6 +8,7 @@ TagManager:
   - Coroner
   - UVLight
   - Powerup
+  - Shield
   layers:
   - Default
   - TransparentFX

@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5dd897b2e2ee82542936367cd2aad98a, type: 2}
+  - {fileID: 2100000, guid: 7993a947454cf7a4096015ab54705ef4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -110,7 +110,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a4e3a8f361b6c246a979a5c4ec47226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bling2: {fileID: 8300000, guid: 8398ed33477517e4c88c493081a78714, type: 3}
+  _coroner: {fileID: 1159344534901892396, guid: 7d21232d46bea2098972b7a9b89d21e3,
+    type: 3}
+  _player: {fileID: 0}
+  _shield: {fileID: 6604900155592328020, guid: d4405b4627c7b3f4cae93487abb54cbc, type: 3}
+  _surprisePowerUpSpeed: 3
+  goodSurprise: {fileID: 8300000, guid: 1694f60db77366640bec5504aa2d9b4a, type: 3}
+  badSurprise: {fileID: 8300000, guid: ec652bee4c9e14b4699761f2bc4f3ecf, type: 3}
 --- !u!54 &1772281999
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -137,7 +143,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4d6de7f6df56b4446badd0f5b51c1966, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1694f60db77366640bec5504aa2d9b4a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -147,7 +153,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.6103232
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
