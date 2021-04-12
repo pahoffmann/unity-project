@@ -12,8 +12,10 @@ public class UIManager : MonoBehaviour
 {
     
     private int _score = 0;
-    [SerializeField] private Text _scoreText;
-    [SerializeField] private Text _livesText;
+    [SerializeField] private TextMeshProUGUI _scoreText;
+    [SerializeField] private TextMeshProUGUI _livesText;
+    [SerializeField] private TextMeshProUGUI _levelText;
+    [SerializeField] private TextMeshProUGUI _levelMessageText;
     [SerializeField] private TextMeshProUGUI _gameOverText;
     [SerializeField] private TextMeshProUGUI _inputText;
     [SerializeField] private TextMeshProUGUI _gameOverScore;
@@ -44,6 +46,11 @@ public class UIManager : MonoBehaviour
         _livesText.text = "Lives: " + lives;
     }
 
+    public void setLevel(int level)
+    {
+        _levelText.text = "Level: " + level;
+    }
+    
     public void GameOver(bool gameOver)
     {
         gameUI.SetActive(false);
@@ -61,5 +68,19 @@ public class UIManager : MonoBehaviour
             File.AppendAllText(Application.streamingAssetsPath + "/" + Constants.highscoreFile,  _inputText.text + "-" + _score + Environment.NewLine);
         }
         SceneManager.LoadScene("Menu");
+    }
+
+    public void setLevelMessage(String message, int duration)
+    {
+        StartCoroutine(LevelMessageCoroutine(message, duration));
+    }
+
+    IEnumerator LevelMessageCoroutine(String message, int duration)
+    {
+        yield return new WaitForSeconds(1);
+        _levelMessageText.text = message;
+        _levelMessageText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(duration - 1);
+        _levelMessageText.gameObject.SetActive(false);
     }
 }

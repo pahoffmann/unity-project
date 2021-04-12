@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,8 +11,11 @@ public class HeartPowerUp : MonoBehaviour
     public AudioClip nicesound;
 
     private Player _player;
-    
-    
+
+    private void Start()
+    {
+        transform.Rotate(new Vector3(-90, 0, 0), Space.Self);
+    }
 
     // Update is called once per frame
     void Update()
