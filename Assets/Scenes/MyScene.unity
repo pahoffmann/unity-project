@@ -3591,6 +3591,8 @@ MonoBehaviour:
   _friendlyShipPrefab: {fileID: 4673641436571209221, guid: bb77cf76bcf538d4cad64240ca6aafb6,
     type: 3}
   _batPrefab: {fileID: 1625221395402176, guid: c9951ca0f61167b4593ffe21b0a089c8, type: 3}
+  _lambdaPrefab: {fileID: 4711511229781802358, guid: 1e2a0648929b11747aba4300288df191,
+    type: 3}
   _uVLightPowerUp: {fileID: 1724212754760185611, guid: adc3e64e25735ed47ad39f7d8410c684,
     type: 3}
   _heartPowerUp: {fileID: 1547776420538905787, guid: fbfd1f7e908eae1438e52e1e5ff2399f,

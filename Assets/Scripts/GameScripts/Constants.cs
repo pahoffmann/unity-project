@@ -42,6 +42,7 @@ public static class Constants
     public readonly struct Bosses
     {
         public const String Bat = "Bat";
+        public const String Lambda = "Lambda";
     }
     
     /// <summary>

@@ -89,7 +89,15 @@ public class Coroner : MonoBehaviour
 
         if (rand < _coinDropProbabilty * 10)
         {
-            Instantiate(_coin, transform.position, Quaternion.Euler(90, 180, 0), transform.parent);
+            try
+            {
+                Instantiate(_coin, transform.position, Quaternion.Euler(90, 180, 0), transform.parent);
+            }
+            catch (Exception e)
+            {
+                Debug.Log("Something that happens 1 in a million, happened. Ignore this. It doesnt even matter.");
+            }
+            
         }
     }
 

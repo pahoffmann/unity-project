@@ -6,21 +6,20 @@ using Random = UnityEngine.Random;
 
 public class BatBoss : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject _baseShot;
+    [SerializeField] private GameObject _baseShot;
     [SerializeField] private GameObject _coin;
     
     
     private bool _inPosition = false;
     private float _speed = 4f;
     private bool _finishedRotating = true;
-    private int _maxClones = 4;
+    [SerializeField] private int _maxClones;
     private float _nextRandomMove;
     private float _timeBetweenRands = 2f;
     private float _randX = 0f;
     private float _randY = 0f;
-    public int _lives { get; set; }
-    private int _score = 20;
+    [SerializeField] private int _lives;
+    [SerializeField] private int _score = 20;
     void Start()
     {
         transform.Rotate(new Vector3(30, 180, 0), Space.Self);
@@ -137,7 +136,7 @@ public class BatBoss : MonoBehaviour
                 _finishedRotating = true;
             }
             // we want to clone the boss, maybe give the clones some opacity, but only if this objects parent is actually the wavemanager
-            else if (counter % 60 == 0 && transform.parent.childCount < 4 && transform.parent.GetChild(0) == transform)
+            else if (counter % 60 == 0 && transform.parent.childCount < _maxClones && transform.parent.GetChild(0) == transform)
             {
                 GameObject clone = Instantiate(gameObject, 
                     new Vector3(Random.Range(Constants.Dimensions.BorderLeft,Constants.Dimensions.BorderRight), transform.position.y, 0), 
@@ -156,34 +155,28 @@ public class BatBoss : MonoBehaviour
         if (other.CompareTag(Constants.Tags.Player))
         {
             other.GetComponent<Player>().Damage();
-            Destroy(gameObject);
+            Damage();
         }
         else if (other.CompareTag(Constants.Tags.Vaccine))
         {
             Destroy(other.gameObject);
-            _lives -= 1;
-            if (_lives == 0)
-            {
-                StartCoroutine(SpawnCoin());
-                Destroy(gameObject);
-                GameObject.FindObjectOfType<UIManager>().AddScore(_score);
-            }
+            Damage();
         }
         else if (other.CompareTag(Constants.Tags.UVLight))
         {
-            _lives -= 1;
-            if (_lives == 0)
-            {
-                Destroy(gameObject);
-                GameObject.FindObjectOfType<UIManager>().AddScore(_score);
-            }
+            Damage();
         }
     }
 
-    private void OnDestroy()
+    private void Damage()
     {
-        
-        
+        _lives -= 1;
+        if (_lives == 0)
+        {
+            StartCoroutine(SpawnCoin());
+            Destroy(gameObject);
+            GameObject.FindObjectOfType<UIManager>().AddScore(_score);
+        }
     }
     
     IEnumerator SpawnCoin()
