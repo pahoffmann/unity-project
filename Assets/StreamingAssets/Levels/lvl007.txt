@@ -1,0 +1,5 @@
+num:3
+type:normal
+msg1:The shoot powerup adds more bullets and reduces the reload time
+tbs:1.5
+prefabs:Shot-1;C0-10

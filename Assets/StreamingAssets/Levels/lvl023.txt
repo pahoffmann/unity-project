@@ -1,0 +1,5 @@
+num:23
+type:normal
+msg1:Level 23
+tbs:0.3
+prefabs:TC-10;C0-200;Heart-3;C1-150;C2-100;C3-50;C4-50;C5-50;C6-50;Heart-1

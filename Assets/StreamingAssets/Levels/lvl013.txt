@@ -1,0 +1,5 @@
+num:13
+type:normal
+msg1: Level 13
+tbs:0.7
+prefabs:C5-25;C6-25

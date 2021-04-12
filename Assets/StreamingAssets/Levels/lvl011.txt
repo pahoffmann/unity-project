@@ -1,0 +1,5 @@
+num:11
+type:normal
+msg1:Level 11
+tbs:0.7
+prefabs:C0-5;C1-5;C2-3;C4-2;C6-5;Shot-1

@@ -1,0 +1,5 @@
+num:10
+type:boss
+msg1:Beware... Boss incoming!!
+tbs:1.5
+prefabs:Bat-1;Heart-1;Random-1

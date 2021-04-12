@@ -1,0 +1,5 @@
+num:6
+type:normal
+msg1:The UV-Light Powerup is the ultimate weapon... try it out!
+tbs:1.5
+prefabs:UVLight-1;C0-20

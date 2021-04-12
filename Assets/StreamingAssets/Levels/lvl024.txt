@@ -1,0 +1,5 @@
+num:24
+type:normal
+msg1:Level 24
+tbs:0.1
+prefabs:Shot-1;TC-10;C0-200;Heart-3;C1-150;C2-100;C3-50;C4-50;C5-50;C6-50

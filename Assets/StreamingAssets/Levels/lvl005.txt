@@ -1,0 +1,5 @@
+num:5
+type:normal
+msg1:The random powerup..is random..try it out!
+tbs:1.5
+prefabs:Random-1

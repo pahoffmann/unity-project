@@ -1,0 +1,5 @@
+num:8
+type:normal
+msg1:Beware, there are a bunch of mutations and other creatures! Now save us, Captain.
+tbs:1.0
+prefabs:C0-5;C1-5

@@ -1,0 +1,5 @@
+num:4
+type:normal
+msg1:The Treasure powerup gives you extra points
+tbs:1.5
+prefabs:TC-1

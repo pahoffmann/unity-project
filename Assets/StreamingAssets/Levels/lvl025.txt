@@ -1,0 +1,5 @@
+num:25
+type:boss
+msg1:This is the last wave, survive and we will honor you well.
+tbs:0.1
+prefabs:Heart-10;Bat-1;Bat-1;Bat-1;Bat-1;Bat-1;Lambda-1;Lambda-1;Lambda-1;Lambda-1;C0-100;C1-40;C2-30;C5-50;C6-30;TC-100

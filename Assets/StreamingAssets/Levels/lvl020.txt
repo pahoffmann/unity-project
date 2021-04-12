@@ -1,0 +1,5 @@
+num:20
+type:boss
+msg1:You made it this far...but are you ready for this?
+tbs:1
+prefabs:Lambda-1;C0-10;C1-5;C6-5

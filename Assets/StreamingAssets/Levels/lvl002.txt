@@ -1,6 +1,5 @@
 num:2
 type:normal
-msg1:Multiple levels...
-tbs:0.5
-prefabs:Shot-2;C0-5;C1-5;C2-5;Random-2;C3-5;C4-5;UVLight-1;C5-5;C6-5;Heart-5
-msg2:At least it doesnt mutate..
+msg1:The pandemic is growing quickly. Please help us!
+tbs:2.0
+prefabs:C0-10

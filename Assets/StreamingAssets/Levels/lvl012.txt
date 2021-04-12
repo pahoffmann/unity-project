@@ -1,0 +1,5 @@
+num:12
+type:normal
+msg1:Level 12
+tbs:0.2
+prefabs:C0-100

@@ -1,0 +1,5 @@
+num:19
+type:normal
+msg1:Level 19
+tbs:0.5
+prefabs:C0-20;C3-10;Random-1;C1-10;TC-1;C5-10;C6-10;Heart-3

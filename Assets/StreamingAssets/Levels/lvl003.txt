@@ -1,6 +1,5 @@
 num:3
 type:normal
-msg1:Here comes the BOSS
+msg1:The Heart powerup gives you one extra live
 tbs:1.5
-prefabs:Bat-1
-msg2:Good job, first wave is done m8
+prefabs:Heart-1

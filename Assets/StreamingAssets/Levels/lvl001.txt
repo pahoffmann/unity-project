@@ -1,6 +1,5 @@
 num:1
 type:normal
-msg1:Welcome to our demo... enjoy...
-tbs:1.0
-prefabs:C0-1;C1-2;C0-5;Shot-1;C1-5
-msg2:Good job, first wave is done m8
+msg1:Captain Corona, we need your help!!
+tbs:2.5
+prefabs:C0-10

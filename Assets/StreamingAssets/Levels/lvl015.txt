@@ -1,0 +1,5 @@
+num:15
+type:normal
+msg1:Level 15
+tbs:0.5
+prefabs:C3-10;Random-1;C1-10;TC-1;C5-10;C6-10
